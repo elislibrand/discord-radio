@@ -1,1 +1,1 @@
-# discord-radio
+# Discord Radio
