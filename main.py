@@ -9,7 +9,7 @@ class Radio(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    #@commands.command()
+    #@commands.command(aliases = ['h'])
     #async def help(self, ctx):
     #    await ctx.send('\n'.join([method for method in set(dir(self)) if callable(getattr(self, method)) and method.startswith('__') is False]))
 
@@ -26,9 +26,12 @@ class Radio(commands.Cog):
     async def disconnect(self, ctx):
         await ctx.voice_client.disconnect()
 
-    @commands.command()
-    async def play(self, ctx, *, query):
-        print('Nice try!')
+    @commands.command(aliases = ['p'])
+    async def play(self, ctx):
+        ctx.voice_client.play(discord.PCMVolumeTransformer(original = discord.FFmpegPCMAudio('http://fm05-ice.stream.khz.se/fm05_aac'),
+                                                           volume = 1.0))
+        
+        await ctx.send('>>> Tuning in to **{}**'.format('Star FM'))
 
     @play.before_invoke
     async def ensure_voice(self, ctx):
@@ -42,7 +45,7 @@ class Radio(commands.Cog):
         elif ctx.voice_client.is_playing():
             ctx.voice_client.stop()
         
-bot = commands.Bot(command_prefix = commands.when_mentioned_or('/'))#, help_command = None)
+bot = commands.Bot(command_prefix = commands.when_mentioned_or('#'))#, help_command = None)
 
 @bot.event
 async def on_ready():
