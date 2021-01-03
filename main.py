@@ -9,6 +9,10 @@ class Radio(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    #@commands.command()
+    #async def help(self, ctx):
+    #    await ctx.send('\n'.join([method for method in set(dir(self)) if callable(getattr(self, method)) and method.startswith('__') is False]))
+
     @commands.command()
     async def connect(self, ctx):
         channel = ctx.author.voice.channel
@@ -38,7 +42,7 @@ class Radio(commands.Cog):
         elif ctx.voice_client.is_playing():
             ctx.voice_client.stop()
         
-bot = commands.Bot(command_prefix = commands.when_mentioned_or('/'))
+bot = commands.Bot(command_prefix = commands.when_mentioned_or('/'))#, help_command = None)
 
 @bot.event
 async def on_ready():
