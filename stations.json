@@ -1,0 +1,26 @@
+[
+    {
+        "name": "STAR FM",
+        "stream": "http://fm05-ice.stream.khz.se/fm05_aac",
+        "speed": 64,
+        "genre": "70's, 80's & 90's",
+        "country": "SE",
+        "priority": 1
+    },
+    {
+        "name": "Bandit Classic Rock",
+        "stream": "http://wr11-ice.stream.khz.se/wr11_aac",
+        "speed": 64,
+        "genre": "Rock",
+        "country": "SE",
+        "priority": 2
+    },
+    {
+        "name": "Pirate Rock",
+        "stream": "http://stream.piraterock.se:8101/android",
+        "speed": 64,
+        "genre": "Rock",
+        "country": "SE",
+        "priority": 3
+    }
+]

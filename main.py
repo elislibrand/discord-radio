@@ -1,4 +1,5 @@
 import os
+import json
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
@@ -8,6 +9,12 @@ load_dotenv()
 class Radio(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        
+        self.load_stations()
+        
+    def load_stations(self):
+        with open("stations.json", "r") as file:
+            self.stations = json.load(file)
 
     #@commands.command(aliases = ['h'])
     #async def help(self, ctx):
@@ -25,13 +32,41 @@ class Radio(commands.Cog):
     @commands.command(aliases = ['leave'])
     async def disconnect(self, ctx):
         await ctx.voice_client.disconnect()
+        
+    @commands.command(aliases = ['list'])
+    async def l(self, ctx):
+        await ctx.send('>>> ```{}```'.format('\n'.join('{}\t{}'.format(station['priority'], station['name']) for station in self.stations)))
 
     @commands.command(aliases = ['p'])
-    async def play(self, ctx):
-        ctx.voice_client.play(discord.PCMVolumeTransformer(original = discord.FFmpegPCMAudio('http://fm05-ice.stream.khz.se/fm05_aac'),
+    async def play(self, ctx, *, query = '1'):
+        for station in self.stations:
+            if query.isdecimal():
+                if station['priority'] == int(query):
+                    name = station['name']
+                    stream = station['stream']
+                    
+                    break
+            else:
+                if station['name'].lower() == query.lower():
+                    name = station['name']
+                    stream = station['stream']
+                    
+                    break
+        else:
+            if query.isdecimal():
+                await ctx.send('>>> No radio station found with priority **{}**'.format(query))
+            else:
+                await ctx.send('>>> No radio station found named **{}**'.format(query))
+                
+            return
+        
+        if ctx.voice_client.is_playing():
+            ctx.voice_client.stop()
+        
+        ctx.voice_client.play(discord.PCMVolumeTransformer(original = discord.FFmpegPCMAudio(stream),
                                                            volume = 1.0))
         
-        await ctx.send('>>> Tuning in to **{}**'.format('Star FM'))
+        await ctx.send('>>> Tuning in to **{}**'.format(name))
         
     @commands.command(aliases = ['stop'])
     async def pause(self, ctx):
@@ -39,6 +74,9 @@ class Radio(commands.Cog):
         
     @commands.command()
     async def hititjoe(self, ctx):
+        if ctx.voice_client.is_playing():
+            ctx.voice_client.stop()
+            
         ctx.voice_client.play(discord.PCMVolumeTransformer(original = discord.FFmpegPCMAudio('/mnt/d/Downloads/hititjoe.mp3'),
                                                            volume = 1.0))
         
@@ -46,6 +84,9 @@ class Radio(commands.Cog):
         
     @commands.command()
     async def samuel(self, ctx):
+        if ctx.voice_client.is_playing():
+            ctx.voice_client.stop()
+            
         ctx.voice_client.play(discord.PCMVolumeTransformer(original = discord.FFmpegPCMAudio('/mnt/d/Downloads/samuel.mp3'),
                                                            volume = 1.0))
         
@@ -62,8 +103,6 @@ class Radio(commands.Cog):
                 await ctx.send('You are not connected to a voice channel.')
                 
                 raise commands.CommandError('Author not connected to a voice channel.')
-        elif ctx.voice_client.is_playing():
-            ctx.voice_client.stop()
         
 bot = commands.Bot(command_prefix = commands.when_mentioned_or('#'))#, help_command = None)
 
