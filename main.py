@@ -49,7 +49,7 @@ class Radio(commands.Cog):
         await ctx.send('>>> ```{}```'.format('\n'.join(['{:{digits}d}\t{}'.format(station['priority'], station['name'], digits = len(str(len(self.stations)))) for station in sorted(self.stations, key = lambda i: i['priority'])])))
 
     @commands.command(aliases = ['p', 'start'])
-    async def play(self, ctx, *, query = None):
+    async def play(self, ctx, *, query = None):        
         if query is None:
             query = self.current_station['name'] if self.current_station is not None else '1'
         
@@ -87,7 +87,7 @@ class Radio(commands.Cog):
         if ctx.voice_client.is_playing():
             await ctx.send('>>> Currently tuned in to **{}**'.format(self.current_station['name']))
         else:
-            await ctx.send('>>> Not tuned in to any radio station')
+            await ctx.send('>>> Currently not tuned in to any radio station')
             
     @commands.command(aliases = ['hitme'])
     async def random(self, ctx):
@@ -171,6 +171,15 @@ class Radio(commands.Cog):
                 await ctx.author.voice.channel.connect()
             else:
                 await ctx.send('>>> You are not connected to a voice channel')
+                
+                raise commands.CommandError('Author not connected to a voice channel')
+    
+    @priority.before_invoke
+    async def ensure_owner(self, ctx):
+        if str(ctx.message.author) != 'elislibrand#5160':
+            await ctx.send('>>> You are not allowed to perform that command')
+            
+            raise commands.CommandError('Author not allowed to perform command')
         
 bot = commands.Bot(command_prefix = commands.when_mentioned_or('#'))#, help_command = None)
 
