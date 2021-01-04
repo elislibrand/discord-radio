@@ -1,11 +1,19 @@
 [
     {
-        "name": "STAR FM",
-        "stream": "http://fm05-ice.stream.khz.se/fm05_aac",
+        "name": "Bandit Alternative",
+        "stream": "http://wr05-ice.stream.khz.se/wr05_aac",
         "speed": 64,
-        "genre": "70's, 80's & 90's",
+        "genre": "Alternative",
         "country": "SE",
         "priority": 1
+    },
+    {
+        "name": "Bandit Ballads",
+        "stream": "http://wr21-ice.stream.khz.se/wr21_aac",
+        "speed": 64,
+        "genre": "Rock",
+        "country": "SE",
+        "priority": 2
     },
     {
         "name": "Bandit Classic Rock",
@@ -13,7 +21,71 @@
         "speed": 64,
         "genre": "Rock",
         "country": "SE",
-        "priority": 2
+        "priority": 3
+    },
+    {
+        "name": "Bandit Metal",
+        "stream": "http://wr03-ice.stream.khz.se/wr03_aac",
+        "speed": 64,
+        "genre": "Metal",
+        "country": "SE",
+        "priority": 4
+    },
+    {
+        "name": "Bandit Rock",
+        "stream": "http://fm02-ice.stream.khz.se/fm02_aac",
+        "speed": 64,
+        "genre": "Rock",
+        "country": "SE",
+        "priority": 5
+    },
+    {
+        "name": "Country Classics",
+        "stream": "http://wr14-ice.stream.khz.se/wr14_aac",
+        "speed": 64,
+        "genre": "Country",
+        "country": "SE",
+        "priority": 6
+    },
+    {
+        "name": "Dansbandsfavoriter",
+        "stream": "http://wr15-ice.stream.khz.se/wr15_aac",
+        "speed": 64,
+        "genre": "Dansband",
+        "country": "SE",
+        "priority": 7
+    },
+    {
+        "name": "Electro Lounge",
+        "stream": "http://wr16-ice.stream.khz.se/wr16_aac",
+        "speed": 64,
+        "genre": "Electronic",
+        "country": "SE",
+        "priority": 8
+    },
+    {
+        "name": "Gamla Favoriter",
+        "stream": "http://wr09-ice.stream.khz.se/wr09_aac",
+        "speed": 64,
+        "genre": "60's & 70's",
+        "country": "SE",
+        "priority": 9
+    },
+    {
+        "name": "Lugna Favoriter",
+        "stream": "http://fm03-ice.stream.khz.se/fm03_aac",
+        "speed": 64,
+        "genre": "80's & 90's",
+        "country": "SE",
+        "priority": 10
+    },
+    {
+        "name": "One Hit Wonders",
+        "stream": "http://wr18-ice.stream.khz.se/wr18_aac",
+        "speed": 64,
+        "genre": "70's, 80's & 90's",
+        "country": "SE",
+        "priority": 11
     },
     {
         "name": "Pirate Rock",
@@ -21,6 +93,150 @@
         "speed": 64,
         "genre": "Rock",
         "country": "SE",
-        "priority": 3
+        "priority": 12
+    },
+    {
+        "name": "Power Club",
+        "stream": "http://wr06-ice.stream.khz.se/wr06_aac",
+        "speed": 64,
+        "genre": "-",
+        "country": "SE",
+        "priority": 13
+    },
+    {
+        "name": "Power Hit Radio",
+        "stream": "http://fm04-ice.stream.khz.se/fm04_aac",
+        "speed": 64,
+        "genre": "-",
+        "country": "SE",
+        "priority": 14
+    },
+    {
+        "name": "Power Millennium",
+        "stream": "http://wr19-ice.stream.khz.se/wr19_aac",
+        "speed": 64,
+        "genre": "-",
+        "country": "SE",
+        "priority": 15
+    },
+    {
+        "name": "Power Street",
+        "stream": "http://wr07-ice.stream.khz.se/wr07_aac",
+        "speed": 64,
+        "genre": "Hip-Hop",
+        "country": "SE",
+        "priority": 16
+    },
+    {
+        "name": "RIX FM Fresh",
+        "stream": "http://wr04-ice.stream.khz.se/wr04_aac",
+        "speed": 64,
+        "genre": "Pop",
+        "country": "SE",
+        "priority": 17
+    },
+    {
+        "name": "RIX FM",
+        "stream": "http://fm01-ice.stream.khz.se/fm01_aac",
+        "speed": 64,
+        "genre": "Pop",
+        "country": "SE",
+        "priority": 18
+    },
+    {
+        "name": "Radio Rainbow",
+        "stream": "http://wr20-ice.stream.khz.se/wr20_aac",
+        "speed": 64,
+        "genre": "-",
+        "country": "SE",
+        "priority": 19
+    },
+    {
+        "name": "STAR FM",
+        "stream": "http://fm05-ice.stream.khz.se/fm05_aac",
+        "speed": 64,
+        "genre": "70's, 80's & 90's",
+        "country": "SE",
+        "priority": 20
+    },
+    {
+        "name": "Skärgårdsradion",
+        "stream": "http://fm06-ice.stream.khz.se/fm06_aac",
+        "speed": 64,
+        "genre": "-",
+        "country": "SE",
+        "priority": 21
+    },
+    {
+        "name": "Soul Classics",
+        "stream": "http://wr08-ice.stream.khz.se/wr08_aac",
+        "speed": 64,
+        "genre": "Soul",
+        "country": "SE",
+        "priority": 22
+    },
+    {
+        "name": "Star 70's",
+        "stream": "http://wr10-ice.stream.khz.se/wr10_aac",
+        "speed": 64,
+        "genre": "70's",
+        "country": "SE",
+        "priority": 23
+    },
+    {
+        "name": "Star 80's",
+        "stream": "http://wr02-ice.stream.khz.se/wr02_aac",
+        "speed": 64,
+        "genre": "80's",
+        "country": "SE",
+        "priority": 24
+    },
+    {
+        "name": "Star 90's",
+        "stream": "http://wr12-ice.stream.khz.se/wr12_aac",
+        "speed": 64,
+        "genre": "90's",
+        "country": "SE",
+        "priority": 25
+    },
+    {
+        "name": "Svenska Favoriter",
+        "stream": "http://wr13-ice.stream.khz.se/wr13_aac",
+        "speed": 64,
+        "genre": "-",
+        "country": "SE",
+        "priority": 26
+    },
+    {
+        "name": "Sveriges Radio P1",
+        "stream": "https://sverigesradio.se/topsy/direkt/132-lo-mp3.m3u",
+        "speed": 64,
+        "genre": "Spoken",
+        "country": "SE",
+        "priority": 27
+    },
+    {
+        "name": "Sveriges Radio P2",
+        "stream": "https://sverigesradio.se/topsy/direkt/2562-lo-mp3.m3u",
+        "speed": 64,
+        "genre": "Classical",
+        "country": "SE",
+        "priority": 28
+    },
+    {
+        "name": "Sveriges Radio P3",
+        "stream": "https://sverigesradio.se/topsy/direkt/164-lo-mp3.m3u",
+        "speed": 64,
+        "genre": "Pop",
+        "country": "SE",
+        "priority": 29
+    },
+    {
+        "name": "Sveriges Radio P4",
+        "stream": "https://sverigesradio.se/topsy/direkt/701-lo-mp3.m3u",
+        "speed": 64,
+        "genre": "Various",
+        "country": "SE",
+        "priority": 30
     }
 ]

@@ -46,7 +46,7 @@ class Radio(commands.Cog):
         
     @commands.command(aliases = ['list'])
     async def l(self, ctx):
-        await ctx.send('>>> ```{}```'.format('\n'.join(['{}\t{}'.format(station['priority'], station['name']) for station in sorted(self.stations, key = lambda i: i['priority'])])))
+        await ctx.send('>>> ```{}```'.format('\n'.join(['{:{digits}d}\t{}'.format(station['priority'], station['name'], digits = len(str(len(self.stations)))) for station in sorted(self.stations, key = lambda i: i['priority'])])))
 
     @commands.command(aliases = ['p', 'start'])
     async def play(self, ctx, *, query = None):
