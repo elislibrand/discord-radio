@@ -246,5 +246,21 @@
         "genre": "-",
         "country": "SE",
         "priority": 31
+    },
+    {
+        "name": "Rockklassiker",
+        "stream": "http://edge-bauersefm-03-gos2.sharp-stream.com/rockklassiker_instream_se_mp3",
+        "frequency": 106.7,
+        "genre": "Rock",
+        "country": "SE",
+        "priority": 32
+    },
+    {
+        "name": "Rocket FM",
+        "stream": "http://stream.thsradio.se:8000/rocket_hi.mp3",
+        "frequency": -1,
+        "genre": "Rock",
+        "country": "SE",
+        "priority": 33
     }
 ]
