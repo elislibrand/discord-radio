@@ -47,9 +47,9 @@ class Radio(commands.Cog):
                 song = song_info[1].strip()
                 
                 return song, artist
-        except Exception as e:
-            print(e)
             
+            return '', ''
+        except Exception as e:
             return '', ''
 
     #@commands.command(aliases = ['h'])
@@ -87,9 +87,9 @@ class Radio(commands.Cog):
                     break
         else:
             if query.isdecimal():
-                await ctx.send('>>> No radio station found with priority **{}**'.format(query))
+                await ctx.send('>>> No radio station found with priority **{}**'.format(query), delete_after = 30)
             else:
-                await ctx.send('>>> No radio station found named **{}**'.format(query))
+                await ctx.send('>>> No radio station found named **{}**'.format(query), delete_after = 30)
                 
             return
         
@@ -129,7 +129,7 @@ class Radio(commands.Cog):
         if ctx.voice_client.is_playing():
             await ctx.send('>>> Currently tuned in to **{}**'.format(self.current_station['name']))
         else:
-            await ctx.send('>>> Currently not tuned in to any radio station')
+            await ctx.send('>>> Currently not tuned in to any radio station', delete_after = 30)
             
     @commands.command(aliases = [])
     async def song(self, ctx):
@@ -137,15 +137,20 @@ class Radio(commands.Cog):
             song, artist = self.get_song_info(self.current_station['stream'])
             
             if song == '' or artist == '':
-                await ctx.send('>>> No song information available'.format(song, artist))
+                await ctx.send('>>> No song information available'.format(song, artist), delete_after = 30)
             else:
                 await ctx.send('>>> Currently playing **{}** by **{}**'.format(song, artist))
         else:
-            await ctx.send('>>> Currently not tuned in to any radio station')
+            await ctx.send('>>> Currently not tuned in to any radio station', delete_after = 30)
             
     @commands.command(aliases = ['pri'])
     async def priority(self, ctx, *, query):
         queries = [''.join(x).strip() for _, x in itertools.groupby(query, key = str.isdigit)]
+        
+        if int(queries[1]) > len(self.stations):
+            await ctx.send('>>> Priority cannot be higher than number of radio stations', delete_after = 30)
+            
+            return
         
         for station in self.stations:
             if station['name'].lower() == queries[0].lower():
@@ -153,13 +158,13 @@ class Radio(commands.Cog):
                 current_priority = station['priority']
                 
                 if current_priority == int(queries[1]):
-                    await ctx.send('>>> **{}** already has priority **{}**'.format(station['name'], queries[1]))
+                    await ctx.send('>>> **{}** already has priority **{}**'.format(station['name'], queries[1]), delete_after = 30)
                     
                     return
                 
                 break
         else:
-            await ctx.send('>>> No radio station found named **{}**'.format(queries[0]))
+            await ctx.send('>>> No radio station found named **{}**'.format(queries[0]), delete_after = 30)
                 
             return
         
@@ -207,14 +212,14 @@ class Radio(commands.Cog):
             if ctx.author.voice:
                 await ctx.author.voice.channel.connect()
             else:
-                await ctx.send('>>> You are not connected to a voice channel')
+                await ctx.send('>>> You are not connected to a voice channel', delete_after = 30)
                 
                 raise commands.CommandError('Author not connected to a voice channel')
     
     @priority.before_invoke
     async def ensure_owner(self, ctx):
         if str(ctx.message.author) != 'elislibrand#5160':
-            await ctx.send('>>> You are not allowed to perform that command')
+            await ctx.send('>>> You are not allowed to perform that command', delete_after = 30)
             
             raise commands.CommandError('Author not allowed to perform command')
         
