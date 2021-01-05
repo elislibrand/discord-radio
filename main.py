@@ -3,6 +3,7 @@ import json
 import random
 import itertools
 import discord
+import urllib.request as urllib
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -26,6 +27,30 @@ class Radio(commands.Cog):
             
     def update_current_station(self, station):
         self.current_station = station
+        
+    def get_song_info(self, stream):
+        request = urllib.Request(stream)
+        
+        try:
+            request.add_header('Icy-MetaData', 1)
+            
+            response = urllib.urlopen(request)
+            icy_metaint_header = response.headers.get('icy-metaint')
+            
+            if icy_metaint_header is not None:
+                metaint = int(icy_metaint_header)
+                
+                content = response.read(metaint + 255)
+                song_info = content[metaint:].decode(encoding = 'utf-8', errors = 'ignore').split(';', 1)[0][14:-1].split('-')
+                
+                artist = song_info[0].strip()
+                song = song_info[1].strip()
+                
+                return song, artist
+        except Exception as e:
+            print(e)
+            
+            return '', ''
 
     #@commands.command(aliases = ['h'])
     #async def help(self, ctx):
@@ -81,13 +106,6 @@ class Radio(commands.Cog):
     @commands.command(aliases = ['stop'])
     async def pause(self, ctx):
         ctx.voice_client.stop()
-        
-    @commands.command(aliases = ['current'])
-    async def station(self, ctx):
-        if ctx.voice_client.is_playing():
-            await ctx.send('>>> Currently tuned in to **{}**'.format(self.current_station['name']))
-        else:
-            await ctx.send('>>> Currently not tuned in to any radio station')
             
     @commands.command(aliases = ['hitme'])
     async def random(self, ctx):
@@ -105,7 +123,26 @@ class Radio(commands.Cog):
         self.update_current_station(station)
         
         await ctx.send('>>> Tuning in to **{}**'.format(station['name']))
-        
+    
+    @commands.command(aliases = [])
+    async def station(self, ctx):
+        if ctx.voice_client.is_playing():
+            await ctx.send('>>> Currently tuned in to **{}**'.format(self.current_station['name']))
+        else:
+            await ctx.send('>>> Currently not tuned in to any radio station')
+            
+    @commands.command(aliases = [])
+    async def song(self, ctx):
+        if ctx.voice_client.is_playing():
+            song, artist = self.get_song_info(self.current_station['stream'])
+            
+            if song == '' or artist == '':
+                await ctx.send('>>> No song information available'.format(song, artist))
+            else:
+                await ctx.send('>>> Currently playing **{}** by **{}**'.format(song, artist))
+        else:
+            await ctx.send('>>> Currently not tuned in to any radio station')
+            
     @commands.command(aliases = ['pri'])
     async def priority(self, ctx, *, query):
         queries = [''.join(x).strip() for _, x in itertools.groupby(query, key = str.isdigit)]

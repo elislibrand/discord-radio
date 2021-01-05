@@ -160,7 +160,7 @@
         "priority": 20
     },
     {
-        "name": "Skärgårdsradion",
+        "name": "Sk\u00e4rg\u00e5rdsradion",
         "stream": "http://fm06-ice.stream.khz.se/fm06_aac",
         "speed": 64,
         "genre": "-",
@@ -209,7 +209,7 @@
     },
     {
         "name": "Sveriges Radio P1",
-        "stream": "https://sverigesradio.se/topsy/direkt/132-lo-mp3.m3u",
+        "stream": "https://sverigesradio.se/topsy/direkt/132-lo-mp3",
         "speed": 64,
         "genre": "Spoken",
         "country": "SE",
@@ -217,7 +217,7 @@
     },
     {
         "name": "Sveriges Radio P2",
-        "stream": "https://sverigesradio.se/topsy/direkt/2562-lo-mp3.m3u",
+        "stream": "https://sverigesradio.se/topsy/direkt/2562-lo-mp3",
         "speed": 64,
         "genre": "Classical",
         "country": "SE",
@@ -225,7 +225,7 @@
     },
     {
         "name": "Sveriges Radio P3",
-        "stream": "https://sverigesradio.se/topsy/direkt/164-lo-mp3.m3u",
+        "stream": "https://sverigesradio.se/topsy/direkt/164-lo-mp3",
         "speed": 64,
         "genre": "Pop",
         "country": "SE",
@@ -233,7 +233,7 @@
     },
     {
         "name": "Sveriges Radio P4",
-        "stream": "https://sverigesradio.se/topsy/direkt/701-lo-mp3.m3u",
+        "stream": "https://sverigesradio.se/topsy/direkt/701-lo-mp3",
         "speed": 64,
         "genre": "Various",
         "country": "SE",
