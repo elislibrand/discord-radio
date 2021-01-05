@@ -124,6 +124,10 @@ class Radio(commands.Cog):
         
         await ctx.send('>>> Tuning in to **{}**'.format(station['name']))
     
+    #@commands.command(aliases = [])
+    #async def guide(self, ctx):
+    #    await ctx.send('>>> ```{}```'.format('\n'.join(['{:{digits}d}\t{:20s}\t{}'.format(station['priority'], station['name'], self.get_song_info(station['stream']), digits = len(str(len(self.stations)))) for station in sorted(self.stations, key = lambda i: i['priority'])])))
+    
     @commands.command(aliases = [])
     async def station(self, ctx):
         if ctx.voice_client.is_playing():
@@ -145,7 +149,7 @@ class Radio(commands.Cog):
             
     @commands.command(aliases = ['pri'])
     async def priority(self, ctx, *, query):
-        queries = [''.join(x).strip() for _, x in itertools.groupby(query, key = str.isdigit)]
+        queries = [''.join(x).strip() for _, x in itertools.groupby(query, key = str.isdigit)] # Update for radio stations with numbers in name
         
         if int(queries[1]) > len(self.stations):
             await ctx.send('>>> Priority cannot be higher than number of radio stations', delete_after = 30)
