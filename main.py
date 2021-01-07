@@ -1,4 +1,5 @@
 import os
+import re
 import json
 import random
 import itertools
@@ -48,8 +49,11 @@ class Radio(commands.Cog):
                 content = response.read(metaint + 255)
                 song_info = content[metaint:].decode(encoding = 'utf-8', errors = 'ignore').split(';', 1)[0][14:-1].split('-', 1)
                 
-                artist = song_info[0].strip()
-                song = song_info[1].strip()
+                if len(song_info) < 2:
+                    return '', ''
+                
+                artist = re.sub('\[.*?\]', '', song_info[0]).strip()
+                song = re.sub('\[.*?\]', '', song_info[-1]).strip()
                 
                 return song, artist
             
