@@ -300,7 +300,7 @@
         "name": "Radio Sydv\u00e4st",
         "stream": "http://149.255.59.3:8049/stream",
         "frequency": 88.9,
-        "genre": "Rock",
+        "genre": "-",
         "country": "SE",
         "priority": 34,
         "has_metadata": false
@@ -309,9 +309,45 @@
         "name": "Trucknet Radio",
         "stream": "http://stream.ueteknik.se:8000/trucknetradio",
         "frequency": -1,
-        "genre": "Rock",
+        "genre": "-",
         "country": "SE",
         "priority": 35,
+        "has_metadata": true
+    },
+    {
+        "name": "Stockholm N\u00e4rradio",
+        "stream": "http://live.narradio.se:8010",
+        "frequency": 88.0,
+        "genre": "-",
+        "country": "SE",
+        "priority": 36,
+        "has_metadata": false
+    },
+    {
+        "name": "Vinyl FM",
+        "stream": "http://edge-bauersefm-04-cr.sharp-stream.com/vinylfm_instream_se_mp3",
+        "frequency": 105.9,
+        "genre": "60's, 70's & 80's",
+        "country": "SE",
+        "priority": 37,
+        "has_metadata": false
+    },
+    {
+        "name": "Front Porch",
+        "stream": "http://relay.181.fm:8016",
+        "frequency": -1,
+        "genre": "Bluegrass",
+        "country": "US",
+        "priority": 38,
+        "has_metadata": true
+    },
+    {
+        "name": "Radio Riel",
+        "stream": "http://streams.radioriel.org:8020/stream",
+        "frequency": -1,
+        "genre": "Ragtime",
+        "country": "US",
+        "priority": 39,
         "has_metadata": true
     }
 ]

@@ -16,6 +16,7 @@ class Radio(commands.Cog):
         self.current_station = None
         
         self.load_stations()
+        self.load_styling()
         
     def load_stations(self):
         with open('stations.json', 'r') as file:
@@ -24,6 +25,10 @@ class Radio(commands.Cog):
     def dump_stations(self):
         with open('stations.json', 'w') as file:
             json.dump(sorted(self.stations, key = lambda i: i['priority']), file, indent = 4)
+        
+    def load_styling(self):
+        self.d_priority = len(str(len(self.stations)))
+        self.d_name = len(max([station['name'] for station in self.stations], key = len))
             
     def update_current_station(self, station):
         self.current_station = station
@@ -41,7 +46,7 @@ class Radio(commands.Cog):
                 metaint = int(icy_metaint_header)
                 
                 content = response.read(metaint + 255)
-                song_info = content[metaint:].decode(encoding = 'utf-8', errors = 'ignore').split(';', 1)[0][14:-1].split('-')
+                song_info = content[metaint:].decode(encoding = 'utf-8', errors = 'ignore').split(';', 1)[0][14:-1].split('-', 1)
                 
                 artist = song_info[0].strip()
                 song = song_info[1].strip()
@@ -71,7 +76,7 @@ class Radio(commands.Cog):
         
     @commands.command(aliases = ['list'])
     async def l(self, ctx):
-        await ctx.send('>>> ```{}```'.format('\n'.join(['{:{digits}d}\t{}'.format(station['priority'], station['name'], digits = len(str(len(self.stations)))) for station in sorted(self.stations, key = lambda i: i['priority'])])))
+        await ctx.send('>>> ```{}```'.format('\n'.join(['{:{priority}d}\t{:{name}s}\t({})'.format(station['priority'], station['name'], station['genre'], priority = self.d_priority, name = self.d_name) for station in sorted(self.stations, key = lambda i: i['priority'])])))
 
     @commands.command(aliases = ['p', 'start'])
     async def play(self, ctx, *, query = None):        
