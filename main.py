@@ -138,10 +138,15 @@ class Radio(commands.Cog):
     @commands.command(aliases = [])
     async def song(self, ctx):
         if ctx.voice_client.is_playing():
+            if not self.current_station['has_metadata']:
+                await ctx.send('>>> No song information available', delete_after = 30)
+                
+                return
+            
             song, artist = self.get_song_info(self.current_station['stream'])
             
             if song == '' or artist == '':
-                await ctx.send('>>> No song information available'.format(song, artist), delete_after = 30)
+                await ctx.send('>>> No song information available', delete_after = 30)
             else:
                 await ctx.send('>>> Currently playing **{}** by **{}**'.format(song, artist))
         else:

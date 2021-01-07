@@ -5,7 +5,8 @@
         "frequency": -1,
         "genre": "Alternative",
         "country": "SE",
-        "priority": 1
+        "priority": 1,
+        "has_metadata": true
     },
     {
         "name": "Bandit Ballads",
@@ -13,7 +14,8 @@
         "frequency": -1,
         "genre": "Rock",
         "country": "SE",
-        "priority": 2
+        "priority": 2,
+        "has_metadata": true
     },
     {
         "name": "Bandit Classic Rock",
@@ -21,7 +23,8 @@
         "frequency": -1,
         "genre": "Rock",
         "country": "SE",
-        "priority": 3
+        "priority": 3,
+        "has_metadata": true
     },
     {
         "name": "Bandit Metal",
@@ -29,7 +32,8 @@
         "frequency": -1,
         "genre": "Metal",
         "country": "SE",
-        "priority": 4
+        "priority": 4,
+        "has_metadata": true
     },
     {
         "name": "Bandit Rock",
@@ -37,7 +41,8 @@
         "frequency": 101.9,
         "genre": "Rock",
         "country": "SE",
-        "priority": 5
+        "priority": 5,
+        "has_metadata": true
     },
     {
         "name": "Country Classics",
@@ -45,7 +50,8 @@
         "frequency": -1,
         "genre": "Country",
         "country": "SE",
-        "priority": 6
+        "priority": 6,
+        "has_metadata": true
     },
     {
         "name": "Dansbandsfavoriter",
@@ -53,7 +59,8 @@
         "frequency": -1,
         "genre": "Dansband",
         "country": "SE",
-        "priority": 7
+        "priority": 7,
+        "has_metadata": true
     },
     {
         "name": "Electro Lounge",
@@ -61,7 +68,8 @@
         "frequency": -1,
         "genre": "Electronic",
         "country": "SE",
-        "priority": 8
+        "priority": 8,
+        "has_metadata": true
     },
     {
         "name": "Gamla Favoriter",
@@ -69,7 +77,8 @@
         "frequency": -1,
         "genre": "60's & 70's",
         "country": "SE",
-        "priority": 9
+        "priority": 9,
+        "has_metadata": true
     },
     {
         "name": "Lugna Favoriter",
@@ -77,7 +86,8 @@
         "frequency": 104.7,
         "genre": "80's & 90's",
         "country": "SE",
-        "priority": 10
+        "priority": 10,
+        "has_metadata": true
     },
     {
         "name": "One Hit Wonders",
@@ -85,7 +95,8 @@
         "frequency": -1,
         "genre": "70's, 80's & 90's",
         "country": "SE",
-        "priority": 11
+        "priority": 11,
+        "has_metadata": true
     },
     {
         "name": "Pirate Rock",
@@ -93,7 +104,8 @@
         "frequency": 95.4,
         "genre": "Rock",
         "country": "SE",
-        "priority": 12
+        "priority": 12,
+        "has_metadata": true
     },
     {
         "name": "Power Club",
@@ -101,7 +113,8 @@
         "frequency": -1,
         "genre": "-",
         "country": "SE",
-        "priority": 13
+        "priority": 13,
+        "has_metadata": true
     },
     {
         "name": "Power Hit Radio",
@@ -109,7 +122,8 @@
         "frequency": 107.5,
         "genre": "-",
         "country": "SE",
-        "priority": 14
+        "priority": 14,
+        "has_metadata": true
     },
     {
         "name": "Power Millennium",
@@ -117,7 +131,8 @@
         "frequency": -1,
         "genre": "-",
         "country": "SE",
-        "priority": 15
+        "priority": 15,
+        "has_metadata": true
     },
     {
         "name": "Power Street",
@@ -125,7 +140,8 @@
         "frequency": -1,
         "genre": "Hip-Hop",
         "country": "SE",
-        "priority": 16
+        "priority": 16,
+        "has_metadata": true
     },
     {
         "name": "RIX FM Fresh",
@@ -133,7 +149,8 @@
         "frequency": -1,
         "genre": "Pop",
         "country": "SE",
-        "priority": 17
+        "priority": 17,
+        "has_metadata": true
     },
     {
         "name": "RIX FM",
@@ -141,7 +158,8 @@
         "frequency": 106.7,
         "genre": "Pop",
         "country": "SE",
-        "priority": 18
+        "priority": 18,
+        "has_metadata": true
     },
     {
         "name": "Radio Rainbow",
@@ -149,7 +167,8 @@
         "frequency": -1,
         "genre": "-",
         "country": "SE",
-        "priority": 19
+        "priority": 19,
+        "has_metadata": true
     },
     {
         "name": "STAR FM",
@@ -157,7 +176,8 @@
         "frequency": 107.1,
         "genre": "70's, 80's & 90's",
         "country": "SE",
-        "priority": 20
+        "priority": 20,
+        "has_metadata": true
     },
     {
         "name": "Sk\u00e4rg\u00e5rdsradion",
@@ -165,7 +185,8 @@
         "frequency": 90.2,
         "genre": "-",
         "country": "SE",
-        "priority": 21
+        "priority": 21,
+        "has_metadata": true
     },
     {
         "name": "Soul Classics",
@@ -173,7 +194,8 @@
         "frequency": -1,
         "genre": "Soul",
         "country": "SE",
-        "priority": 22
+        "priority": 22,
+        "has_metadata": true
     },
     {
         "name": "Star 70's",
@@ -181,7 +203,8 @@
         "frequency": -1,
         "genre": "70's",
         "country": "SE",
-        "priority": 23
+        "priority": 23,
+        "has_metadata": true
     },
     {
         "name": "Star 80's",
@@ -189,7 +212,8 @@
         "frequency": -1,
         "genre": "80's",
         "country": "SE",
-        "priority": 24
+        "priority": 24,
+        "has_metadata": true
     },
     {
         "name": "Star 90's",
@@ -197,7 +221,8 @@
         "frequency": -1,
         "genre": "90's",
         "country": "SE",
-        "priority": 25
+        "priority": 25,
+        "has_metadata": true
     },
     {
         "name": "Svenska Favoriter",
@@ -205,7 +230,8 @@
         "frequency": -1,
         "genre": "-",
         "country": "SE",
-        "priority": 26
+        "priority": 26,
+        "has_metadata": true
     },
     {
         "name": "Sveriges Radio P1",
@@ -213,7 +239,8 @@
         "frequency": 92.4,
         "genre": "Spoken",
         "country": "SE",
-        "priority": 27
+        "priority": 27,
+        "has_metadata": false
     },
     {
         "name": "Sveriges Radio P2",
@@ -221,7 +248,8 @@
         "frequency": 96.2,
         "genre": "Classical",
         "country": "SE",
-        "priority": 28
+        "priority": 28,
+        "has_metadata": false
     },
     {
         "name": "Sveriges Radio P3",
@@ -229,7 +257,8 @@
         "frequency": 99.3,
         "genre": "Pop",
         "country": "SE",
-        "priority": 29
+        "priority": 29,
+        "has_metadata": false
     },
     {
         "name": "Sveriges Radio P4",
@@ -237,7 +266,8 @@
         "frequency": 103.3,
         "genre": "Various",
         "country": "SE",
-        "priority": 30
+        "priority": 30,
+        "has_metadata": false
     },
     {
         "name": "Radio Viking",
@@ -245,7 +275,8 @@
         "frequency": 101.4,
         "genre": "-",
         "country": "SE",
-        "priority": 31
+        "priority": 31,
+        "has_metadata": false
     },
     {
         "name": "Rockklassiker",
@@ -253,6 +284,34 @@
         "frequency": 106.7,
         "genre": "Rock",
         "country": "SE",
-        "priority": 32
+        "priority": 32,
+        "has_metadata": false
+    },
+    {
+        "name": "80's Hairband",
+        "stream": "http://208.84.155.83:8014",
+        "frequency": -1,
+        "genre": "Rock",
+        "country": "US",
+        "priority": 33,
+        "has_metadata": true
+    },
+    {
+        "name": "Radio Sydv\u00e4st",
+        "stream": "http://149.255.59.3:8049/stream",
+        "frequency": 88.9,
+        "genre": "Rock",
+        "country": "SE",
+        "priority": 34,
+        "has_metadata": false
+    },
+    {
+        "name": "Trucknet Radio",
+        "stream": "http://stream.ueteknik.se:8000/trucknetradio",
+        "frequency": -1,
+        "genre": "Rock",
+        "country": "SE",
+        "priority": 35,
+        "has_metadata": true
     }
 ]
