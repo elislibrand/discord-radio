@@ -216,7 +216,7 @@ class Radio(commands.Cog):
         if ctx.voice_client.is_playing():
             ctx.voice_client.stop()
             
-        ctx.voice_client.play(discord.PCMVolumeTransformer(original = discord.FFmpegPCMAudio('/mnt/d/Downloads/samuel.mp3'),
+        ctx.voice_client.play(discord.PCMVolumeTransformer(original = discord.FFmpegPCMAudio(os.getenv('SAMUEL')),
                                                            volume = 1.0))
         
         while ctx.voice_client.is_playing():
