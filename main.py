@@ -80,7 +80,7 @@ class Radio(commands.Cog):
         
     @commands.command(aliases = ['list'])
     async def l(self, ctx):
-        await ctx.send('>>> ```{}```'.format('\n'.join(['{:{priority}d}\t{:{name}s}\t({})'.format(station['priority'], station['name'], station['genre'], priority = self.d_priority, name = self.d_name) for station in sorted(self.stations, key = lambda i: i['priority'])])))
+        await ctx.send('>>> ```{}```'.format('\n'.join([':flag_{}:\t{:{priority}d}\t{:{name}s}\t({})'.format(station['country'].lower(), station['priority'], station['name'], station['genre'], priority = self.d_priority, name = self.d_name) for station in sorted(self.stations, key = lambda i: i['priority'])])))
 
     @commands.command(aliases = ['p', 'start'])
     async def play(self, ctx, *, query = None):        
@@ -110,12 +110,12 @@ class Radio(commands.Cog):
         
         self.update_current_station(station)
         
-        await ctx.send('>>> Tuning in to **{}**'.format(station['name']))
+        await ctx.send('>>> Tuning in to :flag_{}: **{}**'.format(station['country'].lower(), station['name']))
         
     @commands.command(aliases = ['stop'])
     async def pause(self, ctx):
         ctx.voice_client.stop()
-            
+
     @commands.command(aliases = ['hitme'])
     async def random(self, ctx):
         station = random.choice(self.stations)
@@ -140,7 +140,7 @@ class Radio(commands.Cog):
     @commands.command(aliases = [])
     async def station(self, ctx):
         if ctx.voice_client.is_playing():
-            await ctx.send('>>> Currently tuned in to **{}**'.format(self.current_station['name']))
+            await ctx.send('>>> Currently tuned in to :flag_{}: **{}**'.format(self.current_station['country'].lower(), self.current_station['name']))
         else:
             await ctx.send('>>> Currently not tuned in to any radio station', delete_after = 30)
             
