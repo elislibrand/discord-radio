@@ -268,5 +268,32 @@
         "country": "SE",
         "priority": 30,
         "has_metadata": false
+    },
+    {
+        "name": "Radio Record",
+        "stream": "http://air.radiorecord.ru:805/hbass_320",
+        "frequency": -1,
+        "genre": "Hard Bass",
+        "country": "RU",
+        "priority": 31,
+        "has_metadata": true
+    },
+    {
+        "name": "Front Porch",
+        "stream": "http://relay.181.fm:8016/",
+        "frequency": -1,
+        "genre": "Bluegrass",
+        "country": "US",
+        "priority": 32,
+        "has_metadata": true
+    },
+    {
+        "name": "Houston Blues Radio",
+        "stream": "https://streaming.live365.com/b76353_128mp3",
+        "frequency": -1,
+        "genre": "Blues",
+        "country": "US",
+        "priority": 33,
+        "has_metadata": true
     }
 ]
