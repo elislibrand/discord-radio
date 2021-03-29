@@ -211,15 +211,21 @@ class Radio(commands.Cog):
     #    
     #    await ctx.send('>>> Hit it **Joe**')
         
-    #@commands.command()
-    #async def samuel(self, ctx):
-    #    if ctx.voice_client.is_playing():
-    #        ctx.voice_client.stop()
-    #        
-    #    ctx.voice_client.play(discord.PCMVolumeTransformer(original = discord.FFmpegPCMAudio('/mnt/d/Downloads/samuel.mp3'),
-    #                                                       volume = 1.0))
-    #    
-    #    await ctx.send('>>> ( ͡° ͜ʖ ͡°)')
+    @commands.command()
+    async def samuel(self, ctx):
+        if ctx.voice_client.is_playing():
+            ctx.voice_client.stop()
+            
+        ctx.voice_client.play(discord.PCMVolumeTransformer(original = discord.FFmpegPCMAudio('/mnt/d/Downloads/samuel.mp3'),
+                                                           volume = 1.0))
+        
+        while ctx.voice_client.is_playing():
+            pass
+        
+        ctx.voice_client.play(discord.PCMVolumeTransformer(original = discord.FFmpegPCMAudio(self.current_station['stream']),
+                                                           volume = 1.0))
+
+        await ctx.send('>>> ( ͡° ͜ʖ ͡°)')
     
     @play.before_invoke
     @random.before_invoke
