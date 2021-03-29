@@ -242,7 +242,7 @@ class Radio(commands.Cog):
     
     @priority.before_invoke
     async def ensure_owner(self, ctx):
-        if str(ctx.message.author) != os.getenv('AUTHOR'):
+        if str(ctx.message.author) != os.getenv('AUTHORS'): # Split AUTHORS at ',' and check every user in list
             await ctx.send('>>> You are not allowed to perform that command', delete_after = 30)
             
             raise commands.CommandError('Author not allowed to perform command')
