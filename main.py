@@ -230,7 +230,7 @@ class Radio(commands.Cog):
     @play.before_invoke
     @random.before_invoke
     #@hititjoe.before_invoke
-    #@samuel.before_invoke
+    @samuel.before_invoke
     async def ensure_voice(self, ctx):
         if ctx.voice_client is None:
             if ctx.author.voice:
