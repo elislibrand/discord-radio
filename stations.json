@@ -295,5 +295,14 @@
         "country": "US",
         "priority": 33,
         "has_metadata": true
+    },
+    {
+        "name": "Ace Hair Band",
+        "stream": "https://bigrradio.cdnstream1.com/5119_128",
+        "frequency": -1,
+        "genre": "Rock",
+        "country": "US",
+        "priority": 34,
+        "has_metadata": true
     }
 ]
