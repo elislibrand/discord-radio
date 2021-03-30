@@ -105,7 +105,7 @@ class Radio(commands.Cog):
         if ctx.voice_client.is_playing():
             ctx.voice_client.stop()
         
-        ctx.voice_client.play(discord.PCMVolumeTransformer(original = discord.FFmpegPCMAudio(station['stream']),
+        ctx.voice_client.play(discord.PCMVolumeTransformer(original = discord.FFmpegOpusAudio(station['stream']),
                                                            volume = 1.0))
         
         self.update_current_station(station)
