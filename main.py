@@ -232,11 +232,11 @@ class Radio(commands.Cog):
 
     @commands.command()
     async def bitrate(self, ctx, *, query):
-        self.bitrate = int(query)
+        self.bitrate = int(query) if int(query) > 0 and int(query) <= 96 else 96
         
         if ctx.voice_client.is_playing():
             ctx.voice_client.stop()
-            
+
             ctx.voice_client.play(discord.FFmpegOpusAudio(self.current_station['stream'], bitrate = self.bitrate))
 
         await ctx.send('>>> Setting bitrate to **{}**'.format(self.bitrate))
