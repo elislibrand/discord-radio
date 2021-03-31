@@ -229,6 +229,15 @@ class Radio(commands.Cog):
         ctx.voice_client.play(discord.FFmpegOpusAudio(self.current_station['stream'], bitrate = self.bitrate))
 
         await ctx.send('>>> ( ͡° ͜ʖ ͡°)')
+
+    @commands.command()
+    async def bitrate(self, ctx, *, query):
+        self.bitrate = int(query)
+        
+        if ctx.voice_client.is_playing():
+            ctx.voice_client.play(discord.FFmpegOpusAudio(self.current_station['stream'], bitrate = self.bitrate))
+
+        await ctx.send('>>> Setting bitrate to **{}**'.format(self.bitrate))
     
     @play.before_invoke
     @random.before_invoke
@@ -245,6 +254,7 @@ class Radio(commands.Cog):
     @priority.before_invoke
     @lock.before_invoke
     @unlock.before_invoke
+    @bitrate.before_invoke
     async def ensure_owner(self, ctx):
         if str(ctx.message.author) not in os.getenv('AUTHORS').split(','):
             await ctx.send('>>> You are not allowed to perform that command', delete_after = 30)
