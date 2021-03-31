@@ -247,7 +247,7 @@ class Radio(commands.Cog):
             
             raise commands.CommandError('Author not allowed to perform command')
         
-        print(os.getenv('AUTHORS').split(','))
+        await ctx.send(os.getenv('AUTHORS').split(','))
         
 bot = commands.Bot(command_prefix = commands.when_mentioned_or('#'))#, help_command = None)
 
