@@ -7,6 +7,7 @@ import itertools
 import discord
 import urllib.request as urllib
 from discord.ext import commands
+from time import sleep
 from dotenv import load_dotenv
 
 discord.opus.load_opus
@@ -108,7 +109,10 @@ class Radio(commands.Cog):
         if ctx.voice_client.is_playing():
             ctx.voice_client.stop()
         
-        ctx.voice_client.play(discord.FFmpegOpusAudio(station['stream']))
+        for i in range(64)
+            ctx.voice_client.play(discord.FFmpegOpusAudio(station['stream']), bitrate = (i + 1))
+
+            sleep(0.1)
         
         self.update_current_station(station)
         
