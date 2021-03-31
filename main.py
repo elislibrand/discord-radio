@@ -1,6 +1,7 @@
 import os
 import re
 import json
+import string
 import random
 import itertools
 import discord
@@ -157,7 +158,7 @@ class Radio(commands.Cog):
             if song == '' or artist == '':
                 await ctx.send('>>> No song information available', delete_after = 30)
             else:
-                await ctx.send('>>> Currently playing **{}** by **{}**'.format(song, artist))
+                await ctx.send('>>> Currently playing **{}** by **{}**'.format(string.capwords(song), string.capwords(artist)))
         else:
             await ctx.send('>>> Currently not tuned in to any radio station', delete_after = 30)
             
