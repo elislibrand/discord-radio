@@ -19,6 +19,7 @@ class Radio(commands.Cog):
         
         self.current_station = None
         self.is_locked = False
+        self.bitrate = 96
         
         self.load_stations()
         self.load_styling()
@@ -109,10 +110,7 @@ class Radio(commands.Cog):
         if ctx.voice_client.is_playing():
             ctx.voice_client.stop()
         
-        for i in range(64):
-            ctx.voice_client.play(discord.FFmpegOpusAudio(station['stream'], bitrate = (i + 1)))
-
-            #sleep(0.1)
+        ctx.voice_client.play(discord.FFmpegOpusAudio(station['stream'], bitrate = self.bitrate))
         
         self.update_current_station(station)
         
@@ -132,7 +130,7 @@ class Radio(commands.Cog):
             while station == self.current_station:
                 station = random.choice(self.stations)
         
-        ctx.voice_client.play(discord.FFmpegOpusAudio(station['stream']))
+        ctx.voice_client.play(discord.FFmpegOpusAudio(station['stream'], bitrate = self.bitrate))
         
         self.update_current_station(station)
         
@@ -223,12 +221,12 @@ class Radio(commands.Cog):
         if ctx.voice_client.is_playing():
             ctx.voice_client.stop()
             
-        ctx.voice_client.play(discord.FFmpegOpusAudio(os.getenv('SAMUEL')))
+        ctx.voice_client.play(discord.FFmpegOpusAudio(os.getenv('SAMUEL'), bitrate = self.bitrate))
         
         while ctx.voice_client.is_playing():
             pass
             
-        ctx.voice_client.play(discord.FFmpegOpusAudio(self.current_station['stream']))
+        ctx.voice_client.play(discord.FFmpegOpusAudio(self.current_station['stream'], bitrate = self.bitrate))
 
         await ctx.send('>>> ( ͡° ͜ʖ ͡°)')
     
