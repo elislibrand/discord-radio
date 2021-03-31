@@ -112,7 +112,7 @@ class Radio(commands.Cog):
         for i in range(64):
             ctx.voice_client.play(discord.FFmpegOpusAudio(station['stream'], bitrate = (i + 1)))
 
-            sleep(0.1)
+            #sleep(0.1)
         
         self.update_current_station(station)
         
