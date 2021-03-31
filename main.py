@@ -110,7 +110,7 @@ class Radio(commands.Cog):
             ctx.voice_client.stop()
         
         for i in range(64):
-            ctx.voice_client.play(discord.FFmpegOpusAudio(station['stream']), bitrate = (i + 1))
+            ctx.voice_client.play(discord.FFmpegOpusAudio(station['stream'], bitrate = (i + 1)))
 
             sleep(0.1)
         
