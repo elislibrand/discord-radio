@@ -213,16 +213,6 @@ class Radio(commands.Cog):
         
         await ctx.send('>>> Unlocking **Radio**')
 
-    #@commands.command()
-    #async def hititjoe(self, ctx):
-    #    if ctx.voice_client.is_playing():
-    #        ctx.voice_client.stop()
-    #       
-    #    ctx.voice_client.play(discord.PCMVolumeTransformer(original = discord.FFmpegPCMAudio('/mnt/d/Downloads/hititjoe.mp3'),
-    #                                                       volume = 1.0))
-    #    
-    #    await ctx.send('>>> Hit it **Joe**')
-        
     @commands.command()
     async def samuel(self, ctx):
         if ctx.voice_client.is_playing():
@@ -239,7 +229,6 @@ class Radio(commands.Cog):
     
     @play.before_invoke
     @random.before_invoke
-    #@hititjoe.before_invoke
     @samuel.before_invoke
     async def ensure_voice(self, ctx):
         if ctx.voice_client is None:
