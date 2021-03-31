@@ -226,25 +226,10 @@ class Radio(commands.Cog):
         ctx.voice_client.play(discord.FFmpegOpusAudio(self.current_station['stream']))
 
         await ctx.send('>>> ( ͡° ͜ʖ ͡°)')
-
-    @commands.command()
-    async def hititjoe(self, ctx):
-        if ctx.voice_client.is_playing():
-            ctx.voice_client.stop()
-            
-        ctx.voice_client.play(discord.FFmpegOpusAudio(os.getenv('HITITJOE')))
-        
-        while ctx.voice_client.is_playing():
-            pass
-            
-        ctx.voice_client.play(discord.FFmpegOpusAudio(self.current_station['stream']))
-
-        await ctx.send('>>> ( ͡° ͜ʖ ͡°)')
     
     @play.before_invoke
     @random.before_invoke
     @samuel.before_invoke
-    @hititjoe.before_invoke
     async def ensure_voice(self, ctx):
         if ctx.voice_client is None:
             if ctx.author.voice:
@@ -267,7 +252,6 @@ class Radio(commands.Cog):
     @pause.before_invoke
     @random.before_invoke
     @samuel.before_invoke
-    @hititjoe.before_invoke
     async def ensure_unlocked(self, ctx):
         if self.is_locked:
             await ctx.send('>>> Radio is locked', delete_after = 30)
