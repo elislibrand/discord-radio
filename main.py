@@ -8,6 +8,7 @@ import urllib.request as urllib
 from discord.ext import commands
 from dotenv import load_dotenv
 
+discord.opus.load_opus
 load_dotenv()
 
 class Radio(commands.Cog):
@@ -106,8 +107,7 @@ class Radio(commands.Cog):
         if ctx.voice_client.is_playing():
             ctx.voice_client.stop()
         
-        ctx.voice_client.play(discord.PCMVolumeTransformer(original = discord.FFmpegPCMAudio(station['stream']),
-                                                           volume = 1.0))
+        ctx.voice_client.play(discord.FFmpegOpusAudio(station['stream']))
         
         self.update_current_station(station)
         
@@ -127,8 +127,7 @@ class Radio(commands.Cog):
             while station == self.current_station:
                 station = random.choice(self.stations)
         
-        ctx.voice_client.play(discord.PCMVolumeTransformer(original = discord.FFmpegPCMAudio(station['stream']),
-                                                           volume = 1.0))
+        ctx.voice_client.play(discord.FFmpegOpusAudio(station['stream']))
         
         self.update_current_station(station)
         
@@ -229,14 +228,12 @@ class Radio(commands.Cog):
         if ctx.voice_client.is_playing():
             ctx.voice_client.stop()
             
-        ctx.voice_client.play(discord.PCMVolumeTransformer(original = discord.FFmpegPCMAudio(os.getenv('SAMUEL')),
-                                                           volume = 1.0))
+        ctx.voice_client.play(discord.FFmpegOpusAudio(os.getenv('SAMUEL')))
         
         while ctx.voice_client.is_playing():
             pass
             
-        ctx.voice_client.play(discord.PCMVolumeTransformer(original = discord.FFmpegPCMAudio(self.current_station['stream']),
-                                                           volume = 1.0))
+        ctx.voice_client.play(discord.FFmpegOpusAudio(self.current_station['stream']))
 
         await ctx.send('>>> ( ͡° ͜ʖ ͡°)')
     
