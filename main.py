@@ -131,7 +131,7 @@ class Radio(commands.Cog):
         
         self.update_current_station(station)
         
-        await ctx.send('>>> Tuning in to **{}**'.format(station['name']))
+        await ctx.send('>>> Tuning in to :flag_{}: **{}**'.format(station['name']))
 
     #@commands.command(aliases = [])
     #async def guide(self, ctx):
