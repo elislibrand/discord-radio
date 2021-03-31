@@ -137,14 +137,14 @@ class Radio(commands.Cog):
     #async def guide(self, ctx):
     #    await ctx.send('>>> ```{}```'.format('\n'.join(['{:{digits}d}\t{:20s}\t{}'.format(station['priority'], station['name'], self.get_song_info(station['stream']), digits = len(str(len(self.stations)))) for station in sorted(self.stations, key = lambda i: i['priority'])])))
     
-    @commands.command(aliases = [])
+    @commands.command()
     async def station(self, ctx):
         if ctx.voice_client.is_playing():
             await ctx.send('>>> Currently tuned in to :flag_{}: **{}**'.format(self.current_station['country'].lower(), self.current_station['name']))
         else:
             await ctx.send('>>> Currently not tuned in to any radio station', delete_after = 30)
             
-    @commands.command(aliases = [])
+    @commands.command()
     async def song(self, ctx):
         if ctx.voice_client.is_playing():
             if not self.current_station['has_metadata']:
@@ -201,13 +201,13 @@ class Radio(commands.Cog):
         
         await ctx.send('>>> Changing priority of **{}** to **{}**'.format(station_name, queries[1]))
     
-    @commands.command(aliases = [])
+    @commands.command()
     async def lock(self, ctx):
         self.is_locked = True
 
         await ctx.send('>>> Locking **Radio**')
 
-    @commands.command(aliases = [])
+    @commands.command()
     async def unlock(self, ctx):
         self.is_locked = False
         
@@ -226,10 +226,25 @@ class Radio(commands.Cog):
         ctx.voice_client.play(discord.FFmpegOpusAudio(self.current_station['stream']))
 
         await ctx.send('>>> ( ͡° ͜ʖ ͡°)')
+
+    @commands.command()
+    async def hititjoe(self, ctx):
+        if ctx.voice_client.is_playing():
+            ctx.voice_client.stop()
+            
+        ctx.voice_client.play(discord.FFmpegOpusAudio(os.getenv('HITITJOE')))
+        
+        while ctx.voice_client.is_playing():
+            pass
+            
+        ctx.voice_client.play(discord.FFmpegOpusAudio(self.current_station['stream']))
+
+        await ctx.send('>>> ( ͡° ͜ʖ ͡°)')
     
     @play.before_invoke
     @random.before_invoke
     @samuel.before_invoke
+    @hititjoe.before_invoke
     async def ensure_voice(self, ctx):
         if ctx.voice_client is None:
             if ctx.author.voice:
