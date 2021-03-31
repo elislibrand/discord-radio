@@ -266,6 +266,8 @@ class Radio(commands.Cog):
     @play.before_invoke
     @pause.before_invoke
     @random.before_invoke
+    @samuel.before_invoke
+    @hititjoe.before_invoke
     async def ensure_unlocked(self, ctx):
         if self.is_locked:
             await ctx.send('>>> Radio is locked', delete_after = 30)
