@@ -15,6 +15,7 @@ class Radio(commands.Cog):
         self.bot = bot
         
         self.current_station = None
+        self.is_locked = False
         
         self.load_stations()
         self.load_styling()
@@ -83,7 +84,7 @@ class Radio(commands.Cog):
         await ctx.send('>>> ```{}```'.format('\n'.join(['{:{priority}d}\t{:{name}s}\t({})'.format(station['priority'], station['name'], station['genre'], priority = self.d_priority, name = self.d_name) for station in sorted(self.stations, key = lambda i: i['priority'])])))
 
     @commands.command(aliases = ['p', 'start'])
-    async def play(self, ctx, *, query = None):        
+    async def play(self, ctx, *, query = None):
         if query is None:
             query = self.current_station['name'] if self.current_station is not None else '1'
         
@@ -132,7 +133,7 @@ class Radio(commands.Cog):
         self.update_current_station(station)
         
         await ctx.send('>>> Tuning in to **{}**'.format(station['name']))
-    
+
     #@commands.command(aliases = [])
     #async def guide(self, ctx):
     #    await ctx.send('>>> ```{}```'.format('\n'.join(['{:{digits}d}\t{:20s}\t{}'.format(station['priority'], station['name'], self.get_song_info(station['stream']), digits = len(str(len(self.stations)))) for station in sorted(self.stations, key = lambda i: i['priority'])])))
@@ -201,6 +202,18 @@ class Radio(commands.Cog):
         
         await ctx.send('>>> Changing priority of **{}** to **{}**'.format(station_name, queries[1]))
     
+    @commands.command(aliases = [])
+    async def lock(self, ctx, *, query):
+        self.is_locked = True
+
+        await ctx.send('>>> Locking **Radio**')
+
+    @commands.command(aliases = [])
+    async def unlock(self, ctx, *, query):
+        self.is_locked = False
+        
+        await ctx.send('>>> Unlocking **Radio**')
+
     #@commands.command()
     #async def hititjoe(self, ctx):
     #    if ctx.voice_client.is_playing():
@@ -241,11 +254,22 @@ class Radio(commands.Cog):
                 raise commands.CommandError('Author not connected to a voice channel')
     
     @priority.before_invoke
+    @lock.before_invoke
+    @unlock.before_invoke
     async def ensure_owner(self, ctx):
         if str(ctx.message.author) not in os.getenv('AUTHORS').split(','):
             await ctx.send('>>> You are not allowed to perform that command', delete_after = 30)
             
             raise commands.CommandError('Author not allowed to perform command')
+
+    @play.before_invoke
+    @pause.before_invoke
+    @random.before_invoke
+    async def ensure_unlocked(self, ctx):
+        if self.is_locked:
+            await ctx.send('>>> Radio is locked', delete_after = 30)
+            
+            raise commands.CommandError('Radio is locked')
             
 bot = commands.Bot(command_prefix = commands.when_mentioned_or('#'))#, help_command = None)
 
