@@ -203,13 +203,13 @@ class Radio(commands.Cog):
         await ctx.send('>>> Changing priority of **{}** to **{}**'.format(station_name, queries[1]))
     
     @commands.command(aliases = [])
-    async def lock(self, ctx, *, query):
+    async def lock(self, ctx):
         self.is_locked = True
 
         await ctx.send('>>> Locking **Radio**')
 
     @commands.command(aliases = [])
-    async def unlock(self, ctx, *, query):
+    async def unlock(self, ctx):
         self.is_locked = False
         
         await ctx.send('>>> Unlocking **Radio**')
