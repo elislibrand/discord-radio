@@ -304,5 +304,14 @@
         "country": "AU",
         "priority": 34,
         "has_metadata": true
+    },
+    {
+        "name": "Oberkrain",
+        "stream": "https://schw4.streampanel.cloud/5-oberkrain",
+        "frequency": -1,
+        "genre": "Polka",
+        "country": "DE",
+        "priority": 35,
+        "has_metadata": true
     }
 ]
