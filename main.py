@@ -167,7 +167,7 @@ class Radio(commands.Cog):
                 await ctx.send('>>> No song information available', delete_after = 30)
             else:
                 for flag in self.flags:
-                    if flag['country'] == self.current_station['country']:
+                    if flag['country'].lower() == self.current_station['country'].lower():
                         break
                         
                 embed = discord.Embed(title = song, description = artist)
@@ -176,7 +176,7 @@ class Radio(commands.Cog):
                 embed.set_thumbnail(url = 'https://images.vexels.com/media/users/3/132597/isolated/preview/e8c7c6b823f6df05ec5ae37ea03a5c88-vinyl-record-icon-by-vexels.png')
                 embed.set_footer(text = datetime.now().strftime('%Y-%m-%d %H:%M'))
 
-                await ctx.send(embed = embed)
+                await ctx.send(flag['url'])
                 
                 #await ctx.send('>>> Currently playing **{}** by **{}**'.format(song, artist))
         else:
