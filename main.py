@@ -23,6 +23,7 @@ class Radio(commands.Cog):
         self.bitrate = 96
         
         self.load_stations()
+        self.load_flags()
         self.load_styling()
         
     def load_stations(self):
@@ -32,11 +33,15 @@ class Radio(commands.Cog):
     def dump_stations(self):
         with open('stations.json', 'w') as file:
             json.dump(sorted(self.stations, key = lambda i: i['priority']), file, indent = 4)
-        
+
+    def load_flags(self):
+        with open('flags.json', 'r') as file:
+            self.flags = json.load(file)
+
     def load_styling(self):
         self.d_priority = len(str(len(self.stations)))
         self.d_name = len(max([station['name'] for station in self.stations], key = len))
-            
+        
     def update_current_station(self, station):
         self.current_station = station
         
@@ -161,10 +166,15 @@ class Radio(commands.Cog):
             if song == '' or artist == '':
                 await ctx.send('>>> No song information available', delete_after = 30)
             else:
+                for flag in self.flags:
+                    if flag['country'] == self.current_station['country']:
+                        break
+                        
                 embed = discord.Embed(title = song, description = artist)
 
-                embed.set_author(name = ':flag_{country}: {name} - Now Playing'.format(country = self.current_station['country'].lower(), name = self.current_station['name']))
+                embed.set_author(name = '{flag} {name} - Now Playing'.format(flag = flag['url'], name = self.current_station['name']))
                 embed.set_thumbnail(url = 'https://images.vexels.com/media/users/3/132597/isolated/preview/e8c7c6b823f6df05ec5ae37ea03a5c88-vinyl-record-icon-by-vexels.png')
+                embed.add_field(name=' ', value=' ', inline = False)
                 embed.set_footer(text = datetime.now().strftime('%Y-%m-%d %H:%M'))
 
                 await ctx.send(embed = embed)
