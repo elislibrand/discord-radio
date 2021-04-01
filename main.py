@@ -8,6 +8,7 @@ import discord
 import urllib.request as urllib
 from discord.ext import commands
 from time import sleep
+from datetime import datetime
 from dotenv import load_dotenv
 
 discord.opus.load_opus
@@ -160,7 +161,15 @@ class Radio(commands.Cog):
             if song == '' or artist == '':
                 await ctx.send('>>> No song information available', delete_after = 30)
             else:
-                await ctx.send('>>> Currently playing **{}** by **{}**'.format(song, artist))
+                embed = discord.Embed(title = song, description = artist)
+
+                embed.set_author(name = ':flag_{country}: {name} - Now Playing'.format(country = self.current_station['country'].lower(), name = self.current_station['name']))
+                embed.set_thumbnail(url = 'https://images.vexels.com/media/users/3/132597/isolated/preview/e8c7c6b823f6df05ec5ae37ea03a5c88-vinyl-record-icon-by-vexels.png')
+                embed.set_footer(text = datetime.datetime.now().strftime('%Y-%m-%d %H:%M'))
+
+                await ctx.send(embed = embed)
+                
+                #await ctx.send('>>> Currently playing **{}** by **{}**'.format(song, artist))
         else:
             await ctx.send('>>> Currently not tuned in to any radio station', delete_after = 30)
             
