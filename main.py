@@ -174,7 +174,6 @@ class Radio(commands.Cog):
 
                 embed.set_author(name = '{} - Now Playing'.format(self.current_station['name']), icon_url = '{}'.format(flag['url']))
                 embed.set_thumbnail(url = 'https://images.vexels.com/media/users/3/132597/isolated/preview/e8c7c6b823f6df05ec5ae37ea03a5c88-vinyl-record-icon-by-vexels.png')
-                embed.add_field(name=' ', value=' ', inline = False)
                 embed.set_footer(text = datetime.now().strftime('%Y-%m-%d %H:%M'))
 
                 await ctx.send(embed = embed)
