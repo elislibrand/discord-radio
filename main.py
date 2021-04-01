@@ -243,7 +243,7 @@ class Radio(commands.Cog):
         if ctx.voice_client.is_playing():
             ctx.voice_client.stop()
             
-        ctx.voice_client.play(discord.FFmpegOpusAudio(os.getenv('SAMUEL'), bitrate = self.bitrate))
+        ctx.voice_client.play(discord.FFmpegOpusAudio(os.getenv('SAMUEL'), bitrate = 96))
         
         while ctx.voice_client.is_playing():
             pass
