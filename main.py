@@ -66,7 +66,7 @@ class Radio(commands.Cog):
                 artist = re.sub('\[.*?\]', '', song_info[0]).strip()
                 song = re.sub('\[.*?\]', '', song_info[-1]).strip()
                 
-                return string.capwords(song), string.capwords(artist)
+                return re.sub('\\b(?<!\')[a-z]', lambda m: m.group().upper(), song), re.sub('\\b(?<!\')[a-z]', lambda m: m.group().upper(), artist)
             
             return '', ''
         except Exception as e:
