@@ -129,13 +129,13 @@ class Radio(commands.Cog):
     @commands.command(aliases = ['hitme'])
     async def random(self, ctx):
         station = random.choice(self.stations)
+            
+        while station == self.current_station:
+            station = random.choice(self.stations)
         
         if ctx.voice_client.is_playing():
             ctx.voice_client.stop()
-            
-            while station == self.current_station:
-                station = random.choice(self.stations)
-        
+
         ctx.voice_client.play(discord.FFmpegOpusAudio(station['stream'], bitrate = self.bitrate))
         
         self.update_current_station(station)
