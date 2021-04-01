@@ -226,9 +226,10 @@ class Radio(commands.Cog):
         while ctx.voice_client.is_playing():
             pass
             
-        ctx.voice_client.play(discord.FFmpegOpusAudio(self.current_station['stream'], bitrate = self.bitrate))
+        if self.current_station is not None:
+            ctx.voice_client.play(discord.FFmpegOpusAudio(self.current_station['stream'], bitrate = self.bitrate))
 
-        await ctx.send('>>> ( ͡° ͜ʖ ͡°){}'.format(ctx.voice_client.channel.members))
+        await ctx.send('>>> ( ͡° ͜ʖ ͡°){}'.format(ctx.voice_client.channel))
 
     @commands.command()
     async def bitrate(self, ctx, *, query):
