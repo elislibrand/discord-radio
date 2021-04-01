@@ -313,5 +313,14 @@
         "country": "DE",
         "priority": 35,
         "has_metadata": true
+    },
+    {
+        "name": "Feel Jah FM",
+        "stream": "https://solid9.streamupsolutions.com/proxy/aceycmcz?mp=/stream",
+        "frequency": -1,
+        "genre": "Polka",
+        "country": "JM",
+        "priority": 36,
+        "has_metadata": true
     }
 ]

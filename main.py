@@ -60,7 +60,7 @@ class Radio(commands.Cog):
                 artist = re.sub('\[.*?\]', '', song_info[0]).strip()
                 song = re.sub('\[.*?\]', '', song_info[-1]).strip()
                 
-                return song, artist
+                return string.capwords(song), string.capwords(artist)
             
             return '', ''
         except Exception as e:
@@ -160,7 +160,7 @@ class Radio(commands.Cog):
             if song == '' or artist == '':
                 await ctx.send('>>> No song information available', delete_after = 30)
             else:
-                await ctx.send('>>> Currently playing **{}** by **{}**'.format(string.capwords(song), string.capwords(artist)))
+                await ctx.send('>>> Currently playing **{}** by **{}**'.format(song, artist))
         else:
             await ctx.send('>>> Currently not tuned in to any radio station', delete_after = 30)
             
