@@ -174,9 +174,11 @@ class Radio(commands.Cog):
                     if flag['country'].lower() == self.current_station['country'].lower():
                         break
                         
-                embed=discord.Embed(title="GOOD TIMES")
-                embed.set_author(name="Samuel", icon_url='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/275/manual-wheelchair_1f9bd.png')
-                embed.set_thumbnail(url="https://media.tenor.com/images/75ed46f4833ddfd3316dd45d8fae1393/tenor.gif")
+                embed = discord.Embed(title = song, description = artist)
+
+                embed.set_author(name = '{} - Now Playing'.format(self.current_station['name']), icon_url = '{}'.format(flag['url']))
+                embed.set_thumbnail(url = 'https://images.vexels.com/media/users/3/132597/isolated/preview/e8c7c6b823f6df05ec5ae37ea03a5c88-vinyl-record-icon-by-vexels.png')
+                embed.set_footer(text = datetime.now().strftime('%Y-%m-%d %H:%M'))
 
                 await ctx.send(embed = embed)
                 
