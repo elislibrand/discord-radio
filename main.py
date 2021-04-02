@@ -333,7 +333,7 @@ class Radio(commands.Cog):
 
         embed = discord.Embed(title = '{} kb/s'.format(self.bitrate), description = '(1 – 96 kb/s)')
 
-        embed.set_author(name = 'Setting bitrate to...', icon_url = 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/mozilla/36/radio_1f4fb.png')
+        embed.set_author(name = 'Setting bitrate to...', icon_url = 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/softbank/145/radio_1f4fb.png')
 
         await ctx.send(embed = embed)
 
