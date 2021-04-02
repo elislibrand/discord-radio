@@ -134,7 +134,7 @@ class Radio(commands.Cog):
 
         embed = discord.Embed(title = station['title'], description = station['subtitle'])
 
-        embed.set_author(name = 'Tuning in to {}'.format(station['title'], icon_url = '{}'.format(flag['url'])))
+        embed.set_author(name = 'Tuning In To...', icon_url = flag['url'])
         embed.set_thumbnail(url = station['image'])
         embed.set_footer(text = self.get_datetime())
 
@@ -166,7 +166,7 @@ class Radio(commands.Cog):
 
         embed = discord.Embed(title = station['title'], description = station['subtitle'])
 
-        embed.set_author(name = 'Tuning in to {}'.format(station['title'], icon_url = '{}'.format(flag['url'])))
+        embed.set_author(name = 'Tuning In To...', icon_url = flag['url'])
         embed.set_thumbnail(url = station['image'])
         embed.set_footer(text = self.get_datetime())
 
@@ -208,7 +208,7 @@ class Radio(commands.Cog):
                         
                 embed = discord.Embed(title = song, description = artist)
 
-                embed.set_author(name = '{} - Now Playing'.format(self.current_station['title']), icon_url = '{}'.format(flag['url']))
+                embed.set_author(name = '{} - Now Playing'.format(self.current_station['title']), icon_url = flag['url'])
                 embed.set_thumbnail(url = 'https://images.vexels.com/media/users/3/132597/isolated/preview/e8c7c6b823f6df05ec5ae37ea03a5c88-vinyl-record-icon-by-vexels.png')
                 embed.set_footer(text = self.get_datetime())
 
