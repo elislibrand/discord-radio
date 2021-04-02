@@ -2,6 +2,7 @@ import os
 import re
 import json
 import string
+import pytz
 import random
 import itertools
 import discord
@@ -18,6 +19,8 @@ class Radio(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         
+        self.timezone = pytz.timezone('Europe/Stockholm')
+
         self.current_station = None
         self.is_locked = False
         self.bitrate = 96
@@ -44,7 +47,12 @@ class Radio(commands.Cog):
         
     def update_current_station(self, station):
         self.current_station = station
-        
+
+    def get_datetime(self):
+        dt = datetime.now(pytz.utc).astimezone(self.timezone)
+
+        return dt.strftime('%Y-%m-%d %H:%M')
+
     def get_song_info(self, stream):
         request = urllib.Request(stream)
         
@@ -178,7 +186,7 @@ class Radio(commands.Cog):
 
                 embed.set_author(name = '{} - Now Playing'.format(self.current_station['name']), icon_url = '{}'.format(flag['url']))
                 embed.set_thumbnail(url = 'https://images.vexels.com/media/users/3/132597/isolated/preview/e8c7c6b823f6df05ec5ae37ea03a5c88-vinyl-record-icon-by-vexels.png')
-                embed.set_footer(text = datetime.now().strftime('%Y-%m-%d %H:%M'))
+                embed.set_footer(text = self.get_datetime())
 
                 await ctx.send(embed = embed)
                 
