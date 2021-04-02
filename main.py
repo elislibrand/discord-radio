@@ -258,8 +258,13 @@ class Radio(commands.Cog):
             
         if self.current_station is not None:
             ctx.voice_client.play(discord.FFmpegOpusAudio(self.current_station['stream'], bitrate = self.bitrate))
+        
+        embed = discord.Embed(title = '( ͡° ͜ʖ ͡°)')
+        
+        embed.set_author(name = '( ͡° ͜ʖ ͡°)', icon_url = 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/275/manual-wheelchair_1f9bd.png')
+        embed.set_thumbnail(url = 'https://media.tenor.com/images/75ed46f4833ddfd3316dd45d8fae1393/tenor.gif')
 
-        await ctx.send('>>> ( ͡° ͜ʖ ͡°)')
+        await ctx.send(embed = embed)
 
     @commands.command()
     async def bitrate(self, ctx, *, query):
