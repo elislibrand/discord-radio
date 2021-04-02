@@ -43,7 +43,7 @@ class Radio(commands.Cog):
 
     def load_styling(self):
         self.d_priority = len(str(len(self.stations)))
-        self.d_name = len(max([station['name'] for station in self.stations], key = len))
+        self.d_title = len(max([station['title'] for station in self.stations], key = len))
         
     def update_current_station(self, station):
         self.current_station = station
@@ -99,19 +99,19 @@ class Radio(commands.Cog):
         
     @commands.command(aliases = ['list'])
     async def l(self, ctx):
-        await ctx.send('>>> ```{}```'.format('\n'.join(['{:{priority}d}\t{:{name}s}\t({})'.format(station['priority'], station['name'], station['genre'], priority = self.d_priority, name = self.d_name) for station in sorted(self.stations, key = lambda i: i['priority'])])))
+        await ctx.send('>>> ```{}```'.format('\n'.join(['{:{priority}d}\t{:{title}s}\t({})'.format(station['priority'], station['title'], station['genre'], priority = self.d_priority, title = self.d_title) for station in sorted(self.stations, key = lambda i: i['priority'])])))
 
     @commands.command(aliases = ['p', 'start'])
     async def play(self, ctx, *, query = None):
         if query is None:
-            query = self.current_station['name'] if self.current_station is not None else '1'
+            query = self.current_station['title'] if self.current_station is not None else '1'
         
         for station in self.stations:
             if query.isdecimal():
                 if station['priority'] == int(query):
                     break
             else:
-                if station['name'].lower() == query.lower():
+                if station['title'].lower() == query.lower():
                     break
         else:
             if query.isdecimal():
@@ -128,7 +128,19 @@ class Radio(commands.Cog):
         
         self.update_current_station(station)
         
-        await ctx.send('>>> Tuning in to :flag_{}: **{}**'.format(station['country'].lower(), station['name']))
+        for flag in self.flags:
+            if flag['country'].lower() == station['country'].lower():
+                break
+
+        embed = discord.Embed(title = station['title'], description = station['subtitle'])
+
+        embed.set_author(name = 'Tuning in to {}'.format(station['title'], icon_url = '{}'.format(flag['url'])))
+        embed.set_thumbnail(url = station['image'])
+        embed.set_footer(text = self.get_datetime())
+
+        await ctx.send(embed = embed)
+
+        #await ctx.send('>>> Tuning in to :flag_{}: **{}**'.format(station['country'].lower(), station['title']))
         
     @commands.command(aliases = ['stop'])
     async def pause(self, ctx):
@@ -148,16 +160,28 @@ class Radio(commands.Cog):
         
         self.update_current_station(station)
         
-        await ctx.send('>>> Tuning in to :flag_{}: **{}**'.format(station['country'].lower(), station['name']))
+        for flag in self.flags:
+            if flag['country'].lower() == station['country'].lower():
+                break
+
+        embed = discord.Embed(title = station['title'], description = station['subtitle'])
+
+        embed.set_author(name = 'Tuning in to {}'.format(station['title'], icon_url = '{}'.format(flag['url'])))
+        embed.set_thumbnail(url = station['image'])
+        embed.set_footer(text = self.get_datetime())
+
+        await ctx.send(embed = embed)
+
+        #await ctx.send('>>> Tuning in to :flag_{}: **{}**'.format(station['country'].lower(), station['title']))
 
     #@commands.command(aliases = [])
     #async def guide(self, ctx):
-    #    await ctx.send('>>> ```{}```'.format('\n'.join(['{:{digits}d}\t{:20s}\t{}'.format(station['priority'], station['name'], self.get_song_info(station['stream']), digits = len(str(len(self.stations)))) for station in sorted(self.stations, key = lambda i: i['priority'])])))
+    #    await ctx.send('>>> ```{}```'.format('\n'.join(['{:{digits}d}\t{:20s}\t{}'.format(station['priority'], station['title'], self.get_song_info(station['stream']), digits = len(str(len(self.stations)))) for station in sorted(self.stations, key = lambda i: i['priority'])])))
     
     @commands.command()
     async def station(self, ctx):
         if ctx.voice_client.is_playing():
-            await ctx.send('>>> Currently tuned in to :flag_{}: **{}**'.format(self.current_station['country'].lower(), self.current_station['name']))
+            await ctx.send('>>> Currently tuned in to :flag_{}: **{}**'.format(self.current_station['country'].lower(), self.current_station['title']))
         else:
             await ctx.send('>>> Currently not tuned in to any radio station', delete_after = 30)
             
@@ -184,7 +208,7 @@ class Radio(commands.Cog):
                         
                 embed = discord.Embed(title = song, description = artist)
 
-                embed.set_author(name = '{} - Now Playing'.format(self.current_station['name']), icon_url = '{}'.format(flag['url']))
+                embed.set_author(name = '{} - Now Playing'.format(self.current_station['title']), icon_url = '{}'.format(flag['url']))
                 embed.set_thumbnail(url = 'https://images.vexels.com/media/users/3/132597/isolated/preview/e8c7c6b823f6df05ec5ae37ea03a5c88-vinyl-record-icon-by-vexels.png')
                 embed.set_footer(text = self.get_datetime())
 
@@ -204,12 +228,12 @@ class Radio(commands.Cog):
             return
         
         for station in self.stations:
-            if station['name'].lower() == queries[0].lower():
-                station_name = station['name']
+            if station['title'].lower() == queries[0].lower():
+                station_title = station['title']
                 current_priority = station['priority']
                 
                 if current_priority == int(queries[1]):
-                    await ctx.send('>>> **{}** already has priority **{}**'.format(station['name'], queries[1]), delete_after = 30)
+                    await ctx.send('>>> **{}** already has priority **{}**'.format(station['title'], queries[1]), delete_after = 30)
                     
                     return
                 
@@ -220,7 +244,7 @@ class Radio(commands.Cog):
             return
         
         for station in self.stations:
-            if station['name'].lower() == queries[0].lower():
+            if station['title'].lower() == queries[0].lower():
                 station['priority'] = int(queries[1])
             else:
                 if current_priority < int(queries[1]):
@@ -232,7 +256,7 @@ class Radio(commands.Cog):
                         
         self.dump_stations()
         
-        await ctx.send('>>> Changing priority of **{}** to **{}**'.format(station_name, queries[1]))
+        await ctx.send('>>> Changing priority of **{}** to **{}**'.format(station_title, queries[1]))
     
     @commands.command()
     async def lock(self, ctx):

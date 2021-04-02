@@ -4,12 +4,12 @@
         "url": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/275/flag-sweden_1f1f8-1f1ea.png"
     },
     {
-        "country": "RU",
-        "url": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/275/flag-russia_1f1f7-1f1fa.png"
-    },
-    {
         "country": "US",
         "url": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/275/flag-united-states_1f1fa-1f1f8.png"
+    },
+    {
+        "country": "RU",
+        "url": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/275/flag-russia_1f1f7-1f1fa.png"
     },
     {
         "country": "AU",

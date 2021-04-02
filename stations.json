@@ -1,326 +1,102 @@
 [
     {
-        "name": "Bandit Alternative",
-        "stream": "http://wr05-ice.stream.khz.se/wr05_aac",
-        "frequency": -1,
-        "genre": "Alternative",
-        "country": "SE",
-        "priority": 1,
-        "has_metadata": true
-    },
-    {
-        "name": "Bandit Ballads",
-        "stream": "http://wr21-ice.stream.khz.se/wr21_aac",
-        "frequency": -1,
-        "genre": "Rock",
-        "country": "SE",
-        "priority": 2,
-        "has_metadata": true
-    },
-    {
-        "name": "Bandit Classic Rock",
-        "stream": "http://wr11-ice.stream.khz.se/wr11_aac",
-        "frequency": -1,
-        "genre": "Rock",
-        "country": "SE",
-        "priority": 3,
-        "has_metadata": true
-    },
-    {
-        "name": "Bandit Metal",
-        "stream": "http://wr03-ice.stream.khz.se/wr03_aac",
-        "frequency": -1,
-        "genre": "Metal",
-        "country": "SE",
-        "priority": 4,
-        "has_metadata": true
-    },
-    {
-        "name": "Bandit Rock",
-        "stream": "http://fm02-ice.stream.khz.se/fm02_aac",
-        "frequency": 101.9,
-        "genre": "Rock",
-        "country": "SE",
-        "priority": 5,
-        "has_metadata": true
-    },
-    {
-        "name": "Country Classics",
-        "stream": "http://wr14-ice.stream.khz.se/wr14_aac",
-        "frequency": -1,
-        "genre": "Country",
-        "country": "SE",
-        "priority": 6,
-        "has_metadata": true
-    },
-    {
-        "name": "Dansbandsfavoriter",
-        "stream": "http://wr15-ice.stream.khz.se/wr15_aac",
-        "frequency": -1,
-        "genre": "Dansband",
-        "country": "SE",
-        "priority": 7,
-        "has_metadata": true
-    },
-    {
-        "name": "Electro Lounge",
-        "stream": "http://wr16-ice.stream.khz.se/wr16_aac",
-        "frequency": -1,
-        "genre": "Electronic",
-        "country": "SE",
-        "priority": 8,
-        "has_metadata": true
-    },
-    {
-        "name": "Gamla Favoriter",
-        "stream": "http://wr09-ice.stream.khz.se/wr09_aac",
-        "frequency": -1,
-        "genre": "60's & 70's",
-        "country": "SE",
-        "priority": 9,
-        "has_metadata": true
-    },
-    {
-        "name": "Lugna Favoriter",
-        "stream": "http://fm03-ice.stream.khz.se/fm03_aac",
-        "frequency": 104.7,
-        "genre": "80's & 90's",
-        "country": "SE",
-        "priority": 10,
-        "has_metadata": true
-    },
-    {
-        "name": "One Hit Wonders",
-        "stream": "http://wr18-ice.stream.khz.se/wr18_aac",
-        "frequency": -1,
-        "genre": "70's, 80's & 90's",
-        "country": "SE",
-        "priority": 11,
-        "has_metadata": true
-    },
-    {
-        "name": "Pirate Rock",
-        "stream": "http://stream.piraterock.se:8101/android",
-        "frequency": 95.4,
-        "genre": "Rock",
-        "country": "SE",
-        "priority": 12,
-        "has_metadata": true
-    },
-    {
-        "name": "Power Club",
-        "stream": "http://wr06-ice.stream.khz.se/wr06_aac",
-        "frequency": -1,
-        "genre": "-",
-        "country": "SE",
-        "priority": 13,
-        "has_metadata": true
-    },
-    {
-        "name": "Power Hit Radio",
-        "stream": "http://fm04-ice.stream.khz.se/fm04_aac",
-        "frequency": 107.5,
-        "genre": "-",
-        "country": "SE",
-        "priority": 14,
-        "has_metadata": true
-    },
-    {
-        "name": "Power Millennium",
-        "stream": "http://wr19-ice.stream.khz.se/wr19_aac",
-        "frequency": -1,
-        "genre": "-",
-        "country": "SE",
-        "priority": 15,
-        "has_metadata": true
-    },
-    {
-        "name": "Power Street",
-        "stream": "http://wr07-ice.stream.khz.se/wr07_aac",
-        "frequency": -1,
-        "genre": "Hip-Hop",
-        "country": "SE",
-        "priority": 16,
-        "has_metadata": true
-    },
-    {
-        "name": "RIX FM Fresh",
-        "stream": "http://wr04-ice.stream.khz.se/wr04_aac",
-        "frequency": -1,
-        "genre": "Pop",
-        "country": "SE",
-        "priority": 17,
-        "has_metadata": true
-    },
-    {
-        "name": "RIX FM",
-        "stream": "http://fm01-ice.stream.khz.se/fm01_aac",
-        "frequency": 106.7,
-        "genre": "Pop",
-        "country": "SE",
-        "priority": 18,
-        "has_metadata": true
-    },
-    {
-        "name": "Radio Rainbow",
-        "stream": "http://wr20-ice.stream.khz.se/wr20_aac",
-        "frequency": -1,
-        "genre": "-",
-        "country": "SE",
-        "priority": 19,
-        "has_metadata": true
-    },
-    {
-        "name": "STAR FM",
-        "stream": "http://fm05-ice.stream.khz.se/fm05_aac",
-        "frequency": 107.1,
-        "genre": "70's, 80's & 90's",
-        "country": "SE",
-        "priority": 20,
-        "has_metadata": true
-    },
-    {
-        "name": "Sk\u00e4rg\u00e5rdsradion",
-        "stream": "http://fm06-ice.stream.khz.se/fm06_aac",
-        "frequency": 90.2,
-        "genre": "-",
-        "country": "SE",
-        "priority": 21,
-        "has_metadata": true
-    },
-    {
-        "name": "Soul Classics",
-        "stream": "http://wr08-ice.stream.khz.se/wr08_aac",
-        "frequency": -1,
-        "genre": "Soul",
-        "country": "SE",
-        "priority": 22,
-        "has_metadata": true
-    },
-    {
-        "name": "Star 70's",
-        "stream": "http://wr10-ice.stream.khz.se/wr10_aac",
-        "frequency": -1,
-        "genre": "70's",
-        "country": "SE",
-        "priority": 23,
-        "has_metadata": true
-    },
-    {
-        "name": "Star 80's",
-        "stream": "http://wr02-ice.stream.khz.se/wr02_aac",
-        "frequency": -1,
-        "genre": "80's",
-        "country": "SE",
-        "priority": 24,
-        "has_metadata": true
-    },
-    {
-        "name": "Star 90's",
-        "stream": "http://wr12-ice.stream.khz.se/wr12_aac",
-        "frequency": -1,
-        "genre": "90's",
-        "country": "SE",
-        "priority": 25,
-        "has_metadata": true
-    },
-    {
-        "name": "Svenska Favoriter",
-        "stream": "http://wr13-ice.stream.khz.se/wr13_aac",
-        "frequency": -1,
-        "genre": "-",
-        "country": "SE",
-        "priority": 26,
-        "has_metadata": true
-    },
-    {
-        "name": "Sveriges Radio P1",
-        "stream": "https://sverigesradio.se/topsy/direkt/132-lo-mp3",
-        "frequency": 92.4,
-        "genre": "Spoken",
-        "country": "SE",
-        "priority": 27,
-        "has_metadata": false
-    },
-    {
-        "name": "Sveriges Radio P2",
-        "stream": "https://sverigesradio.se/topsy/direkt/2562-lo-mp3",
-        "frequency": 96.2,
-        "genre": "Classical",
-        "country": "SE",
-        "priority": 28,
-        "has_metadata": false
-    },
-    {
-        "name": "Sveriges Radio P3",
-        "stream": "https://sverigesradio.se/topsy/direkt/164-lo-mp3",
-        "frequency": 99.3,
-        "genre": "Pop",
-        "country": "SE",
-        "priority": 29,
-        "has_metadata": false
-    },
-    {
-        "name": "Sveriges Radio P4",
-        "stream": "https://sverigesradio.se/topsy/direkt/701-lo-mp3",
-        "frequency": 103.3,
-        "genre": "Various",
-        "country": "SE",
-        "priority": 30,
-        "has_metadata": false
-    },
-    {
-        "name": "Radio Record",
-        "stream": "http://air.radiorecord.ru:805/hbass_320",
-        "frequency": -1,
-        "genre": "Hard Bass",
-        "country": "RU",
-        "priority": 31,
-        "has_metadata": true
-    },
-    {
-        "name": "Front Porch",
-        "stream": "http://relay.181.fm:8016/",
-        "frequency": -1,
-        "genre": "Bluegrass",
-        "country": "US",
-        "priority": 32,
-        "has_metadata": true
-    },
-    {
-        "name": "Houston Blues Radio",
-        "stream": "https://streaming.live365.com/b76353_128mp3",
-        "frequency": -1,
+        "title": "Houston Blues Radio",
+        "subtitle": "Houston's blues music network",
+        "id": "s232698",
+        "image": "https://cdn-radiotime-logos.tunein.com/s232698q.png",
+        "stream": "https://ais-sa5.cdnstream1.com/b76353_128mp3",
         "genre": "Blues",
         "country": "US",
-        "priority": 33,
-        "has_metadata": true
+        "priority": 1
     },
     {
-        "name": "Ace Radio",
-        "stream": "https://bigrradio.cdnstream1.com/5119_128",
-        "frequency": -1,
+        "title": "Hard Rock Heaven",
+        "subtitle": "The greatest 80's hard rock & hair metal",
+        "id": "s291748",
+        "image": "https://cdn-profiles.tunein.com/s291748/images/logoq.png",
+        "stream": "https://ais-sa2.cdnstream1.com/1521_128",
         "genre": "Rock",
-        "country": "AU",
-        "priority": 34,
-        "has_metadata": true
+        "country": "US",
+        "priority": 2
     },
     {
-        "name": "Oberkrain",
-        "stream": "https://schw4.streampanel.cloud/5-oberkrain",
-        "frequency": -1,
-        "genre": "Polka",
-        "country": "DE",
-        "priority": 35,
-        "has_metadata": true
+        "title": "STAR FM",
+        "subtitle": "Bästa låtarna från 70-, 80- & 90-talet",
+        "id": "s268945",
+        "image": "https://cdn-radiotime-logos.tunein.com/s268945q.png",
+        "stream": "https://fm05-ice.stream.khz.se/fm05_mp3",
+        "genre": "70's, 80's & 90's",
+        "country": "SE",
+        "priority": 3
     },
     {
-        "name": "Feel Jah FM",
-        "stream": "https://solid9.streamupsolutions.com/proxy/aceycmcz?mp=/stream",
-        "frequency": -1,
-        "genre": "Reggae",
-        "country": "JM",
-        "priority": 36,
-        "has_metadata": true
+        "title": "Rockklassiker",
+        "subtitle": "Det bästa från 70-, 80- & 90-talen",
+        "id": "s10668",
+        "image": "https://cdn-profiles.tunein.com/s10668/images/logoq.png",
+        "stream": "https://edge-bauersefm-03-gos2.sharp-stream.com/rockklassiker_instream_se_mp3",
+        "genre": "Rock",
+        "country": "SE",
+        "priority": 4
+    },
+    {
+        "title": "Sveriges Radio P1",
+        "subtitle": "Den talade kanalen",
+        "id": "s25059",
+        "image": "https://cdn-radiotime-logos.tunein.com/s25059q.png",
+        "stream": "https://sverigesradio.se/topsy/direkt/132-lo-mp3",
+        "genre": "Spoken",
+        "country": "SE",
+        "priority": 5
+    },
+    {
+        "title": "Sveriges Radio P2",
+        "subtitle": "Musik och språk",
+        "id": "s2601",
+        "image": "https://cdn-radiotime-logos.tunein.com/s2601q.png",
+        "stream": "https://sverigesradio.se/topsy/direkt/2562-lo-mp3",
+        "genre": "Classical",
+        "country": "SE",
+        "priority": 6
+    },
+    {
+        "title": "Sveriges Radio P3",
+        "subtitle": "Vi älskar ny musik",
+        "id": "s25681",
+        "image": "https://cdn-radiotime-logos.tunein.com/s25681q.png",
+        "stream": "https://sverigesradio.se/topsy/direkt/164-lo-mp3",
+        "genre": "Pop",
+        "country": "SE",
+        "priority": 7
+    },
+    {
+        "title": "Sveriges Radio P4",
+        "subtitle": "Stockholm",
+        "id": "s47341",
+        "image": "https://cdn-radiotime-logos.tunein.com/s47341q.png",
+        "stream": "https://sverigesradio.se/topsy/direkt/701-lo-mp3",
+        "genre": "Various",
+        "country": "SE",
+        "priority": 8
+    },
+    {
+        "title": "Vinyl FM",
+        "subtitle": "Största hitsen någonsin",
+        "id": "s8291",
+        "image": "https://cdn-profiles.tunein.com/s8291/images/logoq.png",
+        "stream": "https://edge-bauersefm-06-gos2.sharp-stream.com/vinylfm_instream_se_mp3",
+        "genre": "60's, 70's & 80's",
+        "country": "SE",
+        "priority": 9
+    },
+    {
+        "title": "NRJ",
+        "subtitle": "De bästa hitsen",
+        "id": "s2340",
+        "image": "https://cdn-radiotime-logos.tunein.com/s2340q.png",
+        "stream": "https://live-bauerse-fm.sharp-stream.com/nrj_instreamtest_se_mp3",
+        "genre": "Pop",
+        "country": "SE",
+        "priority": 10
     }
 ]
