@@ -267,6 +267,26 @@ class Radio(commands.Cog):
         await ctx.send(embed = embed)
 
     @commands.command()
+    async def hititjoe(self, ctx):
+        if ctx.voice_client.is_playing():
+            ctx.voice_client.stop()
+            
+        ctx.voice_client.play(discord.FFmpegOpusAudio(os.getenv('HITITJOE'), bitrate = 96))
+        
+        while ctx.voice_client.is_playing():
+            pass
+            
+        if self.current_station is not None:
+            ctx.voice_client.play(discord.FFmpegOpusAudio(self.current_station['stream'], bitrate = self.bitrate))
+        
+        embed = discord.Embed(title = '( ͡° ͜ʖ ͡°)')
+        
+        embed.set_author(name = 'Hit It Joe', icon_url = 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/281/musical-keyboard_1f3b9.png')
+        embed.set_thumbnail(url = 'https://i.imgur.com/IaUegDL.gif')
+
+        await ctx.send(embed = embed)
+
+    @commands.command()
     async def bitrate(self, ctx, *, query):
         self.bitrate = int(query) if int(query) > 0 and int(query) <= 96 else 96
         
@@ -280,6 +300,7 @@ class Radio(commands.Cog):
     @play.before_invoke
     @random.before_invoke
     @samuel.before_invoke
+    @hititjoe.before_invoke
     async def ensure_voice(self, ctx):
         if ctx.voice_client is None:
             if ctx.author.voice:
@@ -303,6 +324,7 @@ class Radio(commands.Cog):
     @pause.before_invoke
     @random.before_invoke
     @samuel.before_invoke
+    @hititjoe.before_invoke
     async def ensure_unlocked(self, ctx):
         if self.is_locked:
             await ctx.send('>>> Radio is locked', delete_after = 30)
