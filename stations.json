@@ -1,15 +1,5 @@
 [
     {
-        "title": "Houston Blues Radio",
-        "subtitle": "Houston's blues music network",
-        "id": "s232698",
-        "image": "https://cdn-radiotime-logos.tunein.com/s232698q.png",
-        "stream": "https://ais-sa5.cdnstream1.com/b76353_128mp3",
-        "genre": "Blues",
-        "country": "US",
-        "priority": 1
-    },
-    {
         "title": "Hard Rock Heaven",
         "subtitle": "The greatest 80's hard rock & hair metal",
         "id": "s291748",
@@ -17,15 +7,25 @@
         "stream": "https://ais-sa2.cdnstream1.com/1521_128",
         "genre": "Rock",
         "country": "US",
+        "priority": 1
+    },
+    {
+        "title": "Houston Blues Radio",
+        "subtitle": "Houston's blues music network",
+        "id": "s232698",
+        "image": "https://cdn-radiotime-logos.tunein.com/s232698q.png",
+        "stream": "https://ais-sa5.cdnstream1.com/b76353_128mp3",
+        "genre": "Blues",
+        "country": "US",
         "priority": 2
     },
     {
-        "title": "STAR FM",
-        "subtitle": "Bästa låtarna från 70-, 80- & 90-talet",
-        "id": "s268945",
-        "image": "https://cdn-radiotime-logos.tunein.com/s268945q.png",
-        "stream": "https://fm05-ice.stream.khz.se/fm05_mp3",
-        "genre": "70's, 80's & 90's",
+        "title": "NRJ",
+        "subtitle": "De bästa hitsen",
+        "id": "s2340",
+        "image": "https://cdn-radiotime-logos.tunein.com/s2340q.png",
+        "stream": "https://live-bauerse-fm.sharp-stream.com/nrj_instreamtest_se_mp3",
+        "genre": "Pop",
         "country": "SE",
         "priority": 3
     },
@@ -40,6 +40,16 @@
         "priority": 4
     },
     {
+        "title": "STAR FM",
+        "subtitle": "Bästa låtarna från 70-, 80- & 90-talet",
+        "id": "s268945",
+        "image": "https://cdn-radiotime-logos.tunein.com/s268945q.png",
+        "stream": "https://fm05-ice.stream.khz.se/fm05_mp3",
+        "genre": "70's, 80's & 90's",
+        "country": "SE",
+        "priority": 5
+    },
+    {
         "title": "Sveriges Radio P1",
         "subtitle": "Den talade kanalen",
         "id": "s25059",
@@ -47,7 +57,7 @@
         "stream": "https://sverigesradio.se/topsy/direkt/132-lo-mp3",
         "genre": "Spoken",
         "country": "SE",
-        "priority": 5
+        "priority": 6
     },
     {
         "title": "Sveriges Radio P2",
@@ -57,7 +67,7 @@
         "stream": "https://sverigesradio.se/topsy/direkt/2562-lo-mp3",
         "genre": "Classical",
         "country": "SE",
-        "priority": 6
+        "priority": 7
     },
     {
         "title": "Sveriges Radio P3",
@@ -67,7 +77,7 @@
         "stream": "https://sverigesradio.se/topsy/direkt/164-lo-mp3",
         "genre": "Pop",
         "country": "SE",
-        "priority": 7
+        "priority": 8
     },
     {
         "title": "Sveriges Radio P4",
@@ -77,7 +87,7 @@
         "stream": "https://sverigesradio.se/topsy/direkt/701-lo-mp3",
         "genre": "Various",
         "country": "SE",
-        "priority": 8
+        "priority": 9
     },
     {
         "title": "Vinyl FM",
@@ -86,16 +96,6 @@
         "image": "https://cdn-profiles.tunein.com/s8291/images/logoq.png",
         "stream": "https://edge-bauersefm-06-gos2.sharp-stream.com/vinylfm_instream_se_mp3",
         "genre": "60's, 70's & 80's",
-        "country": "SE",
-        "priority": 9
-    },
-    {
-        "title": "NRJ",
-        "subtitle": "De bästa hitsen",
-        "id": "s2340",
-        "image": "https://cdn-radiotime-logos.tunein.com/s2340q.png",
-        "stream": "https://live-bauerse-fm.sharp-stream.com/nrj_instreamtest_se_mp3",
-        "genre": "Pop",
         "country": "SE",
         "priority": 10
     }
