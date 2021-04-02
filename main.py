@@ -2,13 +2,13 @@ import os
 import re
 import json
 import string
-import pytz
 import random
 import itertools
 import discord
 import urllib.request as urllib
 from discord.ext import commands
 from time import sleep
+from pytz import utc, timezone
 from datetime import datetime
 from dotenv import load_dotenv
 
@@ -19,7 +19,7 @@ class Radio(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         
-        self.timezone = pytz.timezone('Europe/Stockholm')
+        self.timezone = timezone('Europe/Stockholm')
 
         self.current_station = None
         self.is_locked = False
@@ -49,7 +49,7 @@ class Radio(commands.Cog):
         self.current_station = station
 
     def get_datetime(self):
-        dt = datetime.now(pytz.utc).astimezone(self.timezone)
+        dt = datetime.now(utc).astimezone(self.timezone)
 
         return dt.strftime('%Y-%m-%d %H:%M')
 
