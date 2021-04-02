@@ -132,11 +132,11 @@ class Radio(commands.Cog):
             if flag['country'].lower() == station['country'].lower():
                 break
 
-        embed = discord.Embed(title = station['title'], description = station['subtitle'])
+        embed = discord.Embed(title = station['title'], description = station['subtitle'], color = '#bd625c')
 
-        embed.set_author(name = 'Tuning In To...', icon_url = flag['url'])
+        embed.set_author(name = 'Tuning in to...', icon_url = flag['url'])
         embed.set_thumbnail(url = station['image'])
-        embed.set_footer(text = self.get_datetime())
+        #embed.set_footer(text = self.get_datetime())
 
         await ctx.send(embed = embed)
 
@@ -166,9 +166,9 @@ class Radio(commands.Cog):
 
         embed = discord.Embed(title = station['title'], description = station['subtitle'])
 
-        embed.set_author(name = 'Tuning In To...', icon_url = flag['url'])
+        embed.set_author(name = 'Tuning in to...', icon_url = flag['url'])
         embed.set_thumbnail(url = station['image'])
-        embed.set_footer(text = self.get_datetime())
+        #embed.set_footer(text = self.get_datetime())
 
         await ctx.send(embed = embed)
 
@@ -187,12 +187,12 @@ class Radio(commands.Cog):
 
             embed = discord.Embed(title = self.current_station['title'], description = self.current_station['subtitle'])
 
-            embed.set_author(name = 'Currrently Tuned In To...', icon_url = flag['url'])
+            embed.set_author(name = 'Currently tuned in to...', icon_url = flag['url'])
             embed.set_thumbnail(url = self.current_station['image'])
-            embed.set_footer(text = self.get_datetime())
+            #embed.set_footer(text = self.get_datetime())
 
             await ctx.send(embed = embed)
-            
+
             #await ctx.send('>>> Currently tuned in to :flag_{}: **{}**'.format(self.current_station['country'].lower(), self.current_station['title']))
         else:
             await ctx.send('>>> Currently not tuned in to any radio station', delete_after = 30)
@@ -220,9 +220,9 @@ class Radio(commands.Cog):
                         
                 embed = discord.Embed(title = song, description = artist)
 
-                embed.set_author(name = '{} - Now Playing'.format(self.current_station['title']), icon_url = flag['url'])
+                embed.set_author(name = 'Now playing...', icon_url = flag['url'])
                 embed.set_thumbnail(url = 'https://images.vexels.com/media/users/3/132597/isolated/preview/e8c7c6b823f6df05ec5ae37ea03a5c88-vinyl-record-icon-by-vexels.png')
-                embed.set_footer(text = self.get_datetime())
+                embed.set_footer(text = self.current_station['title'], icon_url = self.current_station['image'])
 
                 await ctx.send(embed = embed)
                 
