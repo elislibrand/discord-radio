@@ -331,7 +331,13 @@ class Radio(commands.Cog):
 
             ctx.voice_client.play(discord.FFmpegOpusAudio(self.current_station['stream'], bitrate = self.bitrate))
 
-        await ctx.send('>>> Setting bitrate to **{}**'.format(self.bitrate))
+        embed = discord.Embed(title = '{} kb/s'.format(self.bitrate), description = '(1 – 96 kb/s)')
+
+        embed.set_author(name = 'Setting bitrate to...', icon_url = 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/275/radio_1f4fb.png')
+
+        await ctx.send(embed = embed)
+
+        #await ctx.send('>>> Setting bitrate to **{}**'.format(self.bitrate))
     
     @play.before_invoke
     @random.before_invoke
