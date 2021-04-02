@@ -132,7 +132,7 @@ class Radio(commands.Cog):
             if flag['country'].lower() == station['country'].lower():
                 break
 
-        embed = discord.Embed(title = station['title'], description = station['subtitle'], color = '0xbd625c')
+        embed = discord.Embed(title = station['title'], description = station['subtitle'])
 
         embed.set_author(name = 'Tuning in to...', icon_url = flag['url'])
         embed.set_thumbnail(url = station['image'])
