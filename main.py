@@ -297,7 +297,7 @@ class Radio(commands.Cog):
         
         embed = discord.Embed(title = '( ͡° ͜ʖ ͡°)')
         
-        embed.set_author(name = 'Samuel', icon_url = 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/275/manual-wheelchair_1f9bd.png')
+        embed.set_author(name = 'Samuel...', icon_url = 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/275/manual-wheelchair_1f9bd.png')
         embed.set_thumbnail(url = 'https://media.tenor.com/images/75ed46f4833ddfd3316dd45d8fae1393/tenor.gif')
 
         await ctx.send(embed = embed)
@@ -317,7 +317,7 @@ class Radio(commands.Cog):
         
         embed = discord.Embed(title = '( ͡° ͜ʖ ͡°)')
         
-        embed.set_author(name = 'Hit It Joe', icon_url = 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/275/musical-keyboard_1f3b9.png')
+        embed.set_author(name = 'Hit It Joe...', icon_url = 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/275/musical-keyboard_1f3b9.png')
         embed.set_thumbnail(url = 'https://i.imgur.com/IaUegDL.gif')
 
         await ctx.send(embed = embed)
