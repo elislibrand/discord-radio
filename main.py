@@ -159,12 +159,9 @@ class Radio(commands.Cog):
 
         embed.set_author(name = 'Tuning in to...', icon_url = flag['url'])
         embed.set_thumbnail(url = station['image'])
-        #embed.set_footer(text = self.get_datetime())
 
         await ctx.send(embed = embed)
 
-        #await ctx.send('>>> Tuning in to :flag_{}: **{}**'.format(station['country'].lower(), station['title']))
-        
     @commands.command(aliases = ['stop'])
     async def pause(self, ctx):
         ctx.voice_client.stop()
@@ -191,11 +188,8 @@ class Radio(commands.Cog):
 
         embed.set_author(name = 'Tuning in to...', icon_url = flag['url'])
         embed.set_thumbnail(url = station['image'])
-        #embed.set_footer(text = self.get_datetime())
 
         await ctx.send(embed = embed)
-
-        #await ctx.send('>>> Tuning in to :flag_{}: **{}**'.format(station['country'].lower(), station['title']))
 
     #@commands.command(aliases = [])
     #async def guide(self, ctx):
@@ -212,11 +206,8 @@ class Radio(commands.Cog):
 
             embed.set_author(name = 'Currently tuned in to...', icon_url = flag['url'])
             embed.set_thumbnail(url = self.current_station['image'])
-            #embed.set_footer(text = self.get_datetime())
 
             await ctx.send(embed = embed)
-
-            #await ctx.send('>>> Currently tuned in to :flag_{}: **{}**'.format(self.current_station['country'].lower(), self.current_station['title']))
         else:
             await ctx.send('>>> Currently not tuned in to any radio station', delete_after = 30)
             
@@ -244,7 +235,6 @@ class Radio(commands.Cog):
                 
                 embed.set_author(name = 'Now playing...', icon_url = self.current_station['image'])
                 embed.set_thumbnail(url = album_image)
-                #embed.set_footer(text = self.current_station['title'], icon_url = self.current_station['image'])
 
                 await ctx.send(embed = embed)
         else:
