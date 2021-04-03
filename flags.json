@@ -1,17 +1,5 @@
 [
     {
-        "country": "SE",
-        "url": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/275/flag-sweden_1f1f8-1f1ea.png"
-    },
-    {
-        "country": "US",
-        "url": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/275/flag-united-states_1f1fa-1f1f8.png"
-    },
-    {
-        "country": "RU",
-        "url": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/275/flag-russia_1f1f7-1f1fa.png"
-    },
-    {
         "country": "AU",
         "url": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/275/flag-australia_1f1e6-1f1fa.png"
     },
@@ -20,7 +8,23 @@
         "url": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/275/flag-germany_1f1e9-1f1ea.png"
     },
     {
+        "country": "GB",
+        "url": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/275/flag-united-kingdom_1f1ec-1f1e7.png"
+    },
+    {
         "country": "JM",
         "url": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/275/flag-jamaica_1f1ef-1f1f2.png"
+    },
+    {
+        "country": "RU",
+        "url": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/275/flag-russia_1f1f7-1f1fa.png"
+    },
+    {
+        "country": "SE",
+        "url": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/275/flag-sweden_1f1f8-1f1ea.png"
+    },
+    {
+        "country": "US",
+        "url": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/275/flag-united-states_1f1fa-1f1f8.png"
     }
 ]
