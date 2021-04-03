@@ -53,32 +53,54 @@ class Radio(commands.Cog):
 
         return dt.strftime('%Y-%m-%d %H:%M')
 
-    def get_song_info(self, stream):
-        request = urllib.Request(stream)
+    #def get_song_info(self, stream):
+    #    request = urllib.Request(stream)
+    #    
+    #    try:
+    #        request.add_header('Icy-MetaData', 1)
+    #        
+    #        response = urllib.urlopen(request)
+    #        icy_metaint_header = response.headers.get('icy-metaint')
+    #        
+    #        if icy_metaint_header is not None:
+    #            metaint = int(icy_metaint_header)
+    #            
+    #            content = response.read(metaint + 255)
+    #            song_info = content[metaint:].decode(encoding = 'utf-8', errors = 'ignore').split(';', 1)[0][14:-1].split('-', 1)
+    #            
+    #            if len(song_info) < 2:
+    #                return '', ''
+    #            
+    #            artist = re.sub('\[.*?\]', '', song_info[0]).strip()
+    #            song = re.sub('\[.*?\]', '', song_info[-1]).strip()
+    #            
+    #            return re.sub('\\b(?<!\')[a-z]', lambda m: m.group().upper(), song), re.sub('\\b(?<!\')[a-z]', lambda m: m.group().upper(), artist)
+    #        
+    #        return '', ''
+    #    except Exception as e:
+    #        return '', ''
+
+    def get_song_info(self, station_id):
+        request = urllib.Request('https://feed.tunein.com/profiles/{}/nowPlaying'.format(station_id))
         
-        try:
-            request.add_header('Icy-MetaData', 1)
-            
+        try:            
             response = urllib.urlopen(request)
-            icy_metaint_header = response.headers.get('icy-metaint')
+
+            content = json.loads(response.read())
             
-            if icy_metaint_header is not None:
-                metaint = int(icy_metaint_header)
-                
-                content = response.read(metaint + 255)
-                song_info = content[metaint:].decode(encoding = 'utf-8', errors = 'ignore').split(';', 1)[0][14:-1].split('-', 1)
-                
-                if len(song_info) < 2:
-                    return '', ''
-                
-                artist = re.sub('\[.*?\]', '', song_info[0]).strip()
-                song = re.sub('\[.*?\]', '', song_info[-1]).strip()
-                
-                return re.sub('\\b(?<!\')[a-z]', lambda m: m.group().upper(), song), re.sub('\\b(?<!\')[a-z]', lambda m: m.group().upper(), artist)
+            song_info = content['Secondary']['Title'].split('-', 1)
             
-            return '', ''
+            if len(song_info) < 2:
+                return '', '', ''
+            
+            artist = re.sub('\\b(?<!\')[a-z]', lambda m: m.group().upper(), re.sub('\[.*?\]', '', song_info[0]).strip())
+            song = re.sub('\\b(?<!\')[a-z]', lambda m: m.group().upper(), re.sub('\[.*?\]', '', song_info[1]).strip())
+
+            album_image = urlparse(content['Secondary']['Image'])._replace(scheme = 'https', params = '', query = '', fragment = '').geturl()
+
+            return artist, song, album_image
         except Exception as e:
-            return '', ''
+            return '', '', ''
 
     #@commands.command(aliases = ['h'])
     #async def help(self, ctx):
@@ -200,28 +222,27 @@ class Radio(commands.Cog):
     @commands.command()
     async def song(self, ctx):
         if ctx.voice_client.is_playing():
-            if not self.current_station['has_metadata']:
-                await ctx.send('>>> No song information available', delete_after = 30)
-                
-                return
+            station_id = self.current_station['id']
             
-            for i in range(2):
-                song, artist = self.get_song_info(self.current_station['stream'])
+            #if station_id == '':
+            #    await ctx.send('>>> No song information available', delete_after = 30)
 
-                if not song == '' and not artist == '':
-                    break
+            artist, song, album_image = self.get_song_info(station_id)
 
-            if song == '' or artist == '':
+            if artist == '' or song == '':
                 await ctx.send('>>> No song information available', delete_after = 30)
             else:
                 for flag in self.flags:
                     if flag['country'].lower() == self.current_station['country'].lower():
                         break
-                        
-                embed = discord.Embed(title = song, description = artist)
 
+                if album_image == '' or album_image == self.current_station['image']:
+                    album_image = 'https://images.vexels.com/media/users/3/132597/isolated/preview/e8c7c6b823f6df05ec5ae37ea03a5c88-vinyl-record-icon-by-vexels.png'
+
+                embed = discord.Embed(title = song, description = artist)
+                
                 embed.set_author(name = 'Now playing...', icon_url = flag['url'])
-                embed.set_thumbnail(url = 'https://images.vexels.com/media/users/3/132597/isolated/preview/e8c7c6b823f6df05ec5ae37ea03a5c88-vinyl-record-icon-by-vexels.png')
+                embed.set_thumbnail(url = album_image)
                 embed.set_footer(text = self.current_station['title'], icon_url = self.current_station['image'])
 
                 await ctx.send(embed = embed)
