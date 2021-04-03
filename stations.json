@@ -1,5 +1,25 @@
 [
     {
+        "title": "CBN Gospel",
+        "subtitle": "Yesterday and today's gospel",
+        "id": "s128893",
+        "image": "https://cdn-radiotime-logos.tunein.com/s128893q.png",
+        "stream": "https://streams.cbnradio.com/gospel-128K",
+        "genre": "Gospel",
+        "country": "US",
+        "priority": 1
+    },
+    {
+        "title": "Got Radio",
+        "subtitle": "Bit o' blues",
+        "id": "s49671",
+        "image": "https://cdn-radiotime-logos.tunein.com/s49671q.png",
+        "stream": "https://pureplay.cdnstream1.com/6019_128.mp3",
+        "genre": "Blues",
+        "country": "US",
+        "priority": 2
+    },
+    {
         "title": "Hard Rock Heaven",
         "subtitle": "The greatest 80's hard rock & hair metal",
         "id": "s291748",
@@ -7,77 +27,87 @@
         "stream": "https://ais-sa2.cdnstream1.com/1521_128",
         "genre": "Rock",
         "country": "US",
-        "priority": 1
-    },
-    {
-        "title": "Houston Blues Radio",
-        "subtitle": "Houston's blues music network",
-        "id": "s232698",
-        "image": "https://cdn-radiotime-logos.tunein.com/s232698q.png",
-        "stream": "https://ais-sa5.cdnstream1.com/b76353_128mp3",
-        "genre": "Blues",
-        "country": "US",
-        "priority": 2
+        "priority": 3
     },
     {
         "title": "NRJ",
-        "subtitle": "De bästa hitsen",
+        "subtitle": "De b\u00e4sta hitsen",
         "id": "s2340",
         "image": "https://cdn-radiotime-logos.tunein.com/s2340q.png",
         "stream": "https://live-bauerse-fm.sharp-stream.com/nrj_instreamtest_se_mp3",
         "genre": "Pop",
         "country": "SE",
-        "priority": 3
+        "priority": 4
+    },
+    {
+        "title": "Oberkrain",
+        "subtitle": "Die sch\u00f6nsten krainer in radio oberkrain",
+        "id": "s185758",
+        "image": "https://cdn-profiles.tunein.com/s185758/images/logoq.jpg",
+        "stream": "https://schw3.streampanel.cloud/5-oberkrain",
+        "genre": "Polka",
+        "country": "DE",
+        "priority": 5
+    },
+    {
+        "title": "Pirate Rock",
+        "subtitle": "V\u00e4stkustens b\u00e4sta rock",
+        "id": "s188936",
+        "image": "https://cdn-profiles.tunein.com/s188936/images/logoq.png",
+        "stream": "https://stream.piraterock.se:8101/webradio",
+        "genre": "Rock",
+        "country": "SE",
+        "priority": 6
     },
     {
         "title": "Rockklassiker",
-        "subtitle": "Det bästa från 70-, 80- & 90-talen",
+        "subtitle": "Det b\u00e4sta fr\u00e5n 70-, 80- & 90-talen",
         "id": "s10668",
         "image": "https://cdn-profiles.tunein.com/s10668/images/logoq.png",
         "stream": "https://edge-bauersefm-03-gos2.sharp-stream.com/rockklassiker_instream_se_mp3",
         "genre": "Rock",
         "country": "SE",
-        "priority": 4
+        "priority": 7
     },
     {
         "title": "Star 70's",
-        "subtitle": "Bästa låtarna från 70-talet",
+        "subtitle": "B\u00e4sta l\u00e5tarna fr\u00e5n 70-talet",
         "id": "s224816",
         "image": "https://cdn-radiotime-logos.tunein.com/s224816q.png",
         "stream": "https://wr10-ice.stream.khz.se/wr10_mp3",
         "genre": "70's",
         "country": "SE",
-        "priority": 5
+        "priority": 8
     },
     {
         "title": "Star 80's",
-        "subtitle": "Bästa låtarna från 80-talet",
+        "subtitle": "B\u00e4sta l\u00e5tarna fr\u00e5n 80-talet",
         "id": "s228326",
         "image": "https://cdn-radiotime-logos.tunein.com/s228326q.png",
         "stream": "https://wr02-ice.stream.khz.se/wr02_mp3",
         "genre": "80's",
         "country": "SE",
-        "priority": 6
+        "priority": 9
     },
     {
         "title": "Star 90's",
-        "subtitle": "Bästa låtarna från 90-talet",
+        "subtitle": "B\u00e4sta l\u00e5tarna fr\u00e5n 90-talet",
         "id": "s224814",
         "image": "https://cdn-radiotime-logos.tunein.com/s224814q.png",
         "stream": "https://wr12-ice.stream.khz.se/wr12_mp3",
         "genre": "90's",
         "country": "SE",
-        "priority": 7
+        "priority": 10
     },
     {
         "title": "Star FM",
-        "subtitle": "Bästa låtarna från 70-, 80- & 90-talet",
+        "subtitle": "B\u00e4sta l\u00e5tarna fr\u00e5n 70-, 80- & 90-talet",
         "id": "s268945",
         "image": "https://cdn-radiotime-logos.tunein.com/s268945q.png",
         "stream": "https://fm05-ice.stream.khz.se/fm05_mp3",
         "genre": "70's, 80's & 90's",
         "country": "SE",
-        "priority": 8
+        "priority": 11
     },
     {
         "title": "Sveriges Radio P1",
@@ -87,27 +117,27 @@
         "stream": "https://sverigesradio.se/topsy/direkt/132-lo-mp3",
         "genre": "Spoken",
         "country": "SE",
-        "priority": 9
+        "priority": 12
     },
     {
         "title": "Sveriges Radio P2",
-        "subtitle": "Musik och språk",
+        "subtitle": "Musik och spr\u00e5k",
         "id": "s2601",
         "image": "https://cdn-radiotime-logos.tunein.com/s2601q.png",
         "stream": "https://sverigesradio.se/topsy/direkt/2562-lo-mp3",
         "genre": "Classical",
         "country": "SE",
-        "priority": 10
+        "priority": 13
     },
     {
         "title": "Sveriges Radio P3",
-        "subtitle": "Vi älskar ny musik",
+        "subtitle": "Vi \u00e4lskar ny musik",
         "id": "s25681",
         "image": "https://cdn-radiotime-logos.tunein.com/s25681q.png",
         "stream": "https://sverigesradio.se/topsy/direkt/164-lo-mp3",
         "genre": "Pop",
         "country": "SE",
-        "priority": 11
+        "priority": 14
     },
     {
         "title": "Sveriges Radio P4",
@@ -117,16 +147,16 @@
         "stream": "https://sverigesradio.se/topsy/direkt/701-lo-mp3",
         "genre": "Various",
         "country": "SE",
-        "priority": 12
+        "priority": 15
     },
     {
         "title": "Vinyl FM",
-        "subtitle": "Största hitsen någonsin",
+        "subtitle": "St\u00f6rsta hitsen n\u00e5gonsin",
         "id": "s8291",
         "image": "https://cdn-profiles.tunein.com/s8291/images/logoq.png",
         "stream": "https://edge-bauersefm-06-gos2.sharp-stream.com/vinylfm_instream_se_mp3",
         "genre": "60's, 70's & 80's",
         "country": "SE",
-        "priority": 13
+        "priority": 16
     }
 ]
