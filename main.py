@@ -6,6 +6,7 @@ import random
 import itertools
 import discord
 import urllib.request as urllib
+from urllib.parse import urlparse
 from discord.ext import commands
 from time import sleep
 from pytz import utc, timezone
