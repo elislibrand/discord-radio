@@ -89,7 +89,7 @@ class Radio(commands.Cog):
 
             content = json.loads(response.read())
             
-            song_info = content['Secondary']['Title'].split('-', 1)
+            song_info = content['Secondary']['Title'].split(' - ', 1)
             
             if len(song_info) < 2:
                 return '', '', ''
