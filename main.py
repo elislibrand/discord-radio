@@ -242,13 +242,11 @@ class Radio(commands.Cog):
 
                 embed = discord.Embed(title = song, description = artist)
                 
-                embed.set_author(name = 'Now playing...', icon_url = flag['url'])
+                embed.set_author(name = 'Now playing...', icon_url = self.current_station['image'])
                 embed.set_thumbnail(url = album_image)
-                embed.set_footer(text = self.current_station['title'], icon_url = self.current_station['image'])
+                #embed.set_footer(text = self.current_station['title'], icon_url = self.current_station['image'])
 
                 await ctx.send(embed = embed)
-                
-                #await ctx.send('>>> Currently playing **{}** by **{}**'.format(song, artist))
         else:
             await ctx.send('>>> Currently not tuned in to any radio station', delete_after = 30)
             
