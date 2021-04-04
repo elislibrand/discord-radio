@@ -383,7 +383,7 @@ class Radio(commands.Cog):
             
             raise commands.CommandError('Radio is locked')
             
-bot = commands.Bot(command_prefix = commands.when_mentioned_or('#'))#, help_command = None)
+bot = commands.Bot(command_prefix = commands.when_mentioned_or('!'))#, help_command = None)
 
 @bot.event
 async def on_ready():
