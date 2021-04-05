@@ -359,6 +359,8 @@ class Radio(commands.Cog):
     @samuel.before_invoke
     @hititjoe.before_invoke
     async def ensure_voice(self, ctx):
+        print('ctx.voice_client: {}'.format(ctx.voice_client))
+
         if ctx.voice_client is None:
             print('ctx.voice_client: {}'.format(ctx.voice_client))
             
