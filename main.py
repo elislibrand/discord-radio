@@ -358,14 +358,14 @@ class Radio(commands.Cog):
     @random.before_invoke
     @samuel.before_invoke
     @hititjoe.before_invoke
-    async def ensure_voice(self, ctx):
+    async def ensure_connected(self, ctx):
         if ctx.author.voice:
             if ctx.voice_client is not None:
                 return await ctx.voice_client.move_to(channel)
 
             await ctx.author.voice.channel.connect()
         else:
-            return await ctx.send('>>> You are not connected to a voice channel', delete_after = 30)
+            await ctx.send('>>> You are not connected to a voice channel', delete_after = 30)
                 
             raise commands.CommandError('Author not connected to a voice channel')            
     
