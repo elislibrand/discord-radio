@@ -359,20 +359,15 @@ class Radio(commands.Cog):
     @samuel.before_invoke
     @hititjoe.before_invoke
     async def ensure_voice(self, ctx):
-        print('ctx.voice_client: {}'.format(ctx.voice_client))
+        if ctx.author.voice:
+            if ctx.voice_client is not None:
+                return await ctx.voice_client.move_to(channel)
 
-        if ctx.voice_client is None:
-            print('ctx.voice_client: {}'.format(ctx.voice_client))
-            
-            if ctx.author.voice:
-                print('ctx.author.voice: {}'.format(ctx.author.voice))
-                print('ctx.author.voice.channel: {}'.format(ctx.author.voice.channel))
-
-                await ctx.author.voice.channel.connect()
-            else:
-                await ctx.send('>>> You are not connected to a voice channel', delete_after = 30)
+            await ctx.author.voice.channel.connect()
+        else:
+            return await ctx.send('>>> You are not connected to a voice channel', delete_after = 30)
                 
-                raise commands.CommandError('Author not connected to a voice channel')
+            raise commands.CommandError('Author not connected to a voice channel')            
     
     @priority.before_invoke
     @lock.before_invoke
@@ -389,6 +384,7 @@ class Radio(commands.Cog):
     @random.before_invoke
     @samuel.before_invoke
     @hititjoe.before_invoke
+    @bitrate.before_invoke
     async def ensure_unlocked(self, ctx):
         if self.is_locked:
             await ctx.send('>>> Radio is locked', delete_after = 30)
