@@ -390,7 +390,12 @@ class Radio(commands.Cog):
             await ctx.send('>>> Radio is locked', delete_after = 30)
             
             raise commands.CommandError('Radio is locked')
-            
+
+    @disconnect.after_invoke    
+    async def cleanup(self, ctx):
+        self.current_station = None
+        self.bitrate = 96
+
 bot = commands.Bot(command_prefix = commands.when_mentioned_or('!'))#, help_command = None)
 
 @bot.event
