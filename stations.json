@@ -100,6 +100,16 @@
         "priority": 10
     },
     {
+        "title": "Radio Viking",
+        "subtitle": "Schyssta toner f\u00f6r alla generationer",
+        "id": "s2748",
+        "image": "https://cdn-radiotime-logos.tunein.com/s2748q.png",
+        "stream": "http://cdn-live2.crossnet.net:8000/radiovikinglive",
+        "genre": "Various",
+        "country": "SE",
+        "priority": 11
+    },
+    {
         "title": "Rockklassiker",
         "subtitle": "Det b\u00e4sta fr\u00e5n 70-, 80- & 90-talen",
         "id": "s10668",
@@ -107,7 +117,7 @@
         "stream": "https://edge-bauersefm-03-gos2.sharp-stream.com/rockklassiker_instream_se_mp3",
         "genre": "Rock",
         "country": "SE",
-        "priority": 11
+        "priority": 12
     },
     {
         "title": "Star 70's",
@@ -117,7 +127,7 @@
         "stream": "https://wr10-ice.stream.khz.se/wr10_mp3",
         "genre": "70's",
         "country": "SE",
-        "priority": 12
+        "priority": 13
     },
     {
         "title": "Star 80's",
@@ -127,7 +137,7 @@
         "stream": "https://wr02-ice.stream.khz.se/wr02_mp3",
         "genre": "80's",
         "country": "SE",
-        "priority": 13
+        "priority": 14
     },
     {
         "title": "Star 90's",
@@ -137,7 +147,7 @@
         "stream": "https://wr12-ice.stream.khz.se/wr12_mp3",
         "genre": "90's",
         "country": "SE",
-        "priority": 14
+        "priority": 15
     },
     {
         "title": "Star FM",
@@ -147,7 +157,7 @@
         "stream": "https://fm05-ice.stream.khz.se/fm05_mp3",
         "genre": "70's, 80's & 90's",
         "country": "SE",
-        "priority": 15
+        "priority": 16
     },
     {
         "title": "Sveriges Radio P1",
@@ -157,7 +167,7 @@
         "stream": "https://sverigesradio.se/topsy/direkt/132-lo-mp3",
         "genre": "Spoken",
         "country": "SE",
-        "priority": 16
+        "priority": 17
     },
     {
         "title": "Sveriges Radio P2",
@@ -167,7 +177,7 @@
         "stream": "https://sverigesradio.se/topsy/direkt/2562-lo-mp3",
         "genre": "Classical",
         "country": "SE",
-        "priority": 17
+        "priority": 18
     },
     {
         "title": "Sveriges Radio P3",
@@ -177,7 +187,7 @@
         "stream": "https://sverigesradio.se/topsy/direkt/164-lo-mp3",
         "genre": "Pop",
         "country": "SE",
-        "priority": 18
+        "priority": 19
     },
     {
         "title": "Sveriges Radio P4",
@@ -187,7 +197,7 @@
         "stream": "https://sverigesradio.se/topsy/direkt/701-lo-mp3",
         "genre": "Various",
         "country": "SE",
-        "priority": 19
+        "priority": 20
     },
     {
         "title": "Vinyl FM",
@@ -197,6 +207,6 @@
         "stream": "https://edge-bauersefm-06-gos2.sharp-stream.com/vinylfm_instream_se_mp3",
         "genre": "60's, 70's & 80's",
         "country": "SE",
-        "priority": 20
+        "priority": 21
     }
 ]
