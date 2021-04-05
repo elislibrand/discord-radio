@@ -333,17 +333,22 @@ class Radio(commands.Cog):
         await ctx.send(embed = embed)
 
     @commands.command()
-    async def bitrate(self, ctx, *, query):
-        self.bitrate = int(query) if int(query) > 0 and int(query) <= 96 else 96
-        
-        if ctx.voice_client.is_playing():
-            ctx.voice_client.stop()
+    async def bitrate(self, ctx, *, query = None):
+        if query is None:
+            embed_author_name = 'Bitrate is set to...'
+        else:
+            self.bitrate = int(query) if int(query) > 0 and int(query) <= 96 else 96
+            
+            embed_author_name = 'Setting bitrate to...'
 
-            ctx.voice_client.play(discord.FFmpegOpusAudio(self.current_station['stream'], bitrate = self.bitrate))
+            if ctx.voice_client.is_playing():
+                ctx.voice_client.stop()
+
+                ctx.voice_client.play(discord.FFmpegOpusAudio(self.current_station['stream'], bitrate = self.bitrate))
 
         embed = discord.Embed(title = '{} kb/s'.format(self.bitrate), description = '(1 – 96 kb/s)')
 
-        embed.set_author(name = 'Setting bitrate to...', icon_url = 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/softbank/145/radio_1f4fb.png')
+        embed.set_author(name = embed_author_name, icon_url = 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/softbank/145/radio_1f4fb.png')
 
         await ctx.send(embed = embed)
 
@@ -355,7 +360,12 @@ class Radio(commands.Cog):
     @hititjoe.before_invoke
     async def ensure_voice(self, ctx):
         if ctx.voice_client is None:
+            print('ctx.voice_client: {}'.format(ctx.voice_client))
+            
             if ctx.author.voice:
+                print('ctx.author.voice: {}'.format(ctx.author.voice))
+                print('ctx.author.voice.channel: {}'.format(ctx.author.voice.channel))
+
                 await ctx.author.voice.channel.connect()
             else:
                 await ctx.send('>>> You are not connected to a voice channel', delete_after = 30)
